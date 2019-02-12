@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import WSJ from './Components/WSJ';
 import CNBC from './Components/CNBC';
 import TechCrunch from './Components/TechCrunch';
+import InterestRates from './Components/InterestRates';
 // import './App.css';
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Fed Yield Curves</h1>
+        <InterestRates/>
         <br></br>
         <h1>WSJ</h1>
         <WSJ/>
