@@ -27,14 +27,16 @@ class WSJ extends Component {
   }
 
   getNews = () => {
-    const url2 = `${this.state.URL}${this.state.wsj_key}`;
+    const URL = `${this.state.URL}${this.state.wsj_key}`;
     axios
-      .get(url2)
+      .get(URL)
       .then(res => {
         const wsj_news = res.data;
         // console.log(wsj_news);
         this.setState({ wsjNews: wsj_news });
-        // {console.log(this.state.wsjNews.articles[0].author)}
+        {
+          console.log(this.state.wsjNews.articles);
+        }
       })
       .catch(err => console.log('Error', err));
   };
@@ -42,18 +44,26 @@ class WSJ extends Component {
   render() {
     // const newsArticles = this.state.wsjNews.articles
     // console.log(newsArticles)
-    {this.state.wsjNews.articles.map((news, i) => {
-      return <li key={i}>{news.author}</li>;
-    })}
 
-    return (
-      <ul className='wsj-Cards'>
-        {/* {console.log(this.state.wsjNews.articles)} */}
-        {/* <ul>{newsArticles}</ul> */}
-        hello world
-        {/* <h1>{this.state.wsjNews.articles[0].author}</h1>  */}
-      </ul>
-    );
+    if (this.state.wsjNews.articles) {
+      return (
+        <div className='wsj-Cards'>
+          {console.log(this.state.wsjNews.articles)}
+          {this.state.wsjNews.articles.map((news, i) => {
+            return (
+              <React.Fragment>
+                <div>{news.author}</div>
+                <div>{news.title}</div>
+                <div>{news.description}</div>
+                <div>{news.url}</div>
+              </React.Fragment>
+            );
+          })}
+        </div>
+      );
+    } else {
+      return <h1>Loading</h1>;
+    }
   }
 }
 
