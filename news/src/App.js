@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import WSJ from './Components/WSJ';
 import CNBC from './Components/CNBC';
 import TechCrunch from './Components/TechCrunch';
-import './App.css';
+// import './App.css';
 
 class App extends Component {
   render() {
