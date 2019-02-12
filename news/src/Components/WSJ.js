@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// const URL = ``;
 
 class WSJ extends Component {
   constructor() {
@@ -17,14 +16,6 @@ class WSJ extends Component {
     this.getNews();
   }
 
-  componentDidUpdate(prevState) {
-    if (
-      this.state.wsjNews !== prevState.wsjNews ||
-      this.state.wsjNews.articles.length > 0
-    ) {
-      console.log('update state', this.state.wsjNews);
-    }
-  }
 
   getNews = () => {
     const URL = `${this.state.URL}${this.state.wsj_key}`;
@@ -42,8 +33,6 @@ class WSJ extends Component {
   };
 
   render() {
-    // const newsArticles = this.state.wsjNews.articles
-    // console.log(newsArticles)
 
     if (this.state.wsjNews.articles) {
       return (
@@ -51,7 +40,7 @@ class WSJ extends Component {
           {console.log(this.state.wsjNews.articles)}
           {this.state.wsjNews.articles.map((news, i) => {
             return (
-              <React.Fragment>
+              <React.Fragment key={i}>
                 <div>{news.author}</div>
                 <div>{news.title}</div>
                 <div>{news.description}</div>

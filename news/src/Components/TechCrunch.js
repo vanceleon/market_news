@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class CNBC extends Component {
+class TechCrunch extends Component {
   constructor() {
     super();
     this.state = {
-      cnbcNews: [],
-      URL: 'https://newsapi.org/v2/top-headlines?sources=cnbc&apiKey=',
+      TCNews: [],
+      URL: 'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=',
       wsj_key: process.env.REACT_APP_NEWS_API
     };
   }
@@ -23,9 +23,9 @@ class CNBC extends Component {
       .then(res => {
         const wsj_news = res.data;
         // console.log(wsj_news);
-        this.setState({ cnbcNews: wsj_news });
+        this.setState({ TCNews: wsj_news });
         {
-          console.log(this.state.cnbcNews.articles);
+          console.log(this.state.TCNews.articles);
         }
       })
       .catch(err => console.log('Error', err));
@@ -33,11 +33,11 @@ class CNBC extends Component {
 
   render() {
 
-    if (this.state.cnbcNews.articles) {
+    if (this.state.TCNews.articles) {
       return (
         <div className='wsj-Cards'>
-          {console.log(this.state.cnbcNews.articles)}
-          {this.state.cnbcNews.articles.map((news, i) => {
+          {console.log(this.state.TCNews.articles)}
+          {this.state.TCNews.articles.map((news, i) => {
             return (
               <React.Fragment key={i}>
                 <div>{news.author}</div>
@@ -55,4 +55,4 @@ class CNBC extends Component {
   }
 }
 
-export default CNBC;
+export default TechCrunch;
