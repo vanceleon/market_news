@@ -17,8 +17,8 @@ class InterestRates extends Component {
 
 
   getNews = () => {
-    console.log(this.state.quandl_key)
-    const URL = `${this.state.URL}${this.state.quandl_key}`;
+    // const URL = `${this.state.URL}${this.state.quandl_key}`;
+    const URL = this.state.URL
     axios
       .get(URL)
       .then(res => {
@@ -38,13 +38,10 @@ class InterestRates extends Component {
       return (
         <div className='wsj-Cards'>
           {console.log(this.state.FedInt)}
-          {this.state.FedInt.articles.map((news, i) => {
+          {this.state.FedInt.map((news, i) => {
             return (
               <React.Fragment key={i}>
-                <div>{news.author}</div>
-                <div>{news.title}</div>
-                <div>{news.description}</div>
-                <div>{news.url}</div>
+                testing
               </React.Fragment>
             );
           })}
