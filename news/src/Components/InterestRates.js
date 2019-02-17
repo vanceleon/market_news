@@ -26,7 +26,7 @@ class InterestRates extends Component {
         // console.log(wsj_news);
         this.setState({ FedInt: wsj_news });
         {
-          console.log(this.state.FedInt);
+          console.log("interest rates", this.state.FedInt.dataset);
         }
       })
       .catch(err => console.log('Error', err));
@@ -36,12 +36,15 @@ class InterestRates extends Component {
 
     if (this.state.FedInt.id) {
       return (
-        <div className='wsj-Cards'>
+        <div className='interestRateCards'>
           {console.log(this.state.FedInt)}
+          <div className="interestRateTable">
+            {this.state.FedInt.column_names}
+          </div>
           {this.state.FedInt.map((news, i) => {
             return (
               <React.Fragment key={i}>
-                testing
+                
               </React.Fragment>
             );
           })}
