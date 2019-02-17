@@ -1,5 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Menu, Dropdown, Responsive } from 'semantic-ui-react';
 
+const NavBar = () => {
+    return (
+     <div className="topMenu">
+         <h1>Morning Brief</h1> 
+     </div>   
+    )
+}
 
+export default NavBar;
