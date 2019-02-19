@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Container, Header} from 'semantic-ui-react';
 import axios from 'axios';
 // import { dummyData } from '../dummyData.js';
 
@@ -29,7 +30,7 @@ class InterestRates extends Component {
         const fedYield = res.data;
         // console.log(wsj_news);
         this.setState({ FedInt: fedYield, loaded: true });
-       })
+      })
       .catch(err => console.log('Error', err));
   };
 
@@ -37,28 +38,43 @@ class InterestRates extends Component {
     if (this.state.loaded) {
       let interestRateData = this.state.FedInt.dataset;
       return (
-          <div className='interestRateTable'>
-            <h1>{interestRateData.name}</h1>
-            <table>
+        <Container text>
+        <div style={{width:'75%'}}>
+          <Header as='h1'>{interestRateData.name}</Header>
+
+          <table class='ui single line table'>
+            <thead>
               <tr>
                 {interestRateData.column_names.map((header, i) => {
                   return <th key={i}>{header}</th>;
                 })}
               </tr>
-              {interestRateData.data.slice(0,10).map((daily) => {
+            </thead>
+            <tbody>
+              {interestRateData.data.slice(0, 10).map(daily => {
                 return (
-                <tr>
-                  {daily.map((rate) => {
-                  return <td>{rate}</td>;
-                  })}
+                  <tr>
+                    {daily.map(rate => {
+                      return <td>{rate}</td>;
+                    })}
                   </tr>
-                ) 
+                );
               })}
-            </table>
-          </div>
+            </tbody>
+          </table>
+        </div>
+
+        </Container>
       );
     } else {
-      return <h1>Loading Interest Rates</h1>;
+      return (
+        <div class='ui segment'>
+          <div class='ui active inverted dimmer'>
+            <div class='ui text loader'>Loading</div>
+          </div>
+          <p />
+        </div>
+      );
     }
   }
 }

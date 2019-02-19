@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {Container, Header} from 'semantic-ui-react';
 import axios from 'axios';
+
 
 class WSJ extends Component {
   constructor() {
@@ -36,11 +38,16 @@ class WSJ extends Component {
 
     if (this.state.wsjNews.articles) {
       return (
+        <Container text>
+        <Header as='h1'>
+          WSJ
+          </Header>
         <div className='newsCards'>
           {console.log(this.state.wsjNews.articles)}
           {this.state.wsjNews.articles.map((news, i) => {
             return (
               <React.Fragment key={i}>
+                <a href={news.url}><img src={news.urlToImage } style={{width: '100%', borderRadius: '15px'}}/></a>
                 <a href={news.url}>{news.title}</a>
                 <div>{news.description}</div>
                 <div>{news.author}</div>
@@ -48,9 +55,18 @@ class WSJ extends Component {
             );
           })}
         </div>
+
+        </Container>
       );
     } else {
-      return <h1>Loading</h1>;
+      return (
+      <div class="ui segment">
+  <div class="ui active inverted dimmer">
+    <div class="ui text loader">Loading</div>
+  </div>
+  <p></p>
+</div>
+        )
     }
   }
 }
