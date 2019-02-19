@@ -13,12 +13,9 @@ class App extends Component {
         <NavBar/>
         <InterestRates/>
         <br></br>
-        <h1>WSJ</h1>
-        {/* <WSJ/> */}
-        <h1>CNBC News</h1>
-        {/* <CNBC/> */}
-        <h1>Tech Crunch</h1>
-        {/* <TechCrunch/> */}
+        <WSJ/>
+        <CNBC/>
+        <TechCrunch/>
         {/* <h1>World News</h1>
         <h1>Briefing.com</h1>
         <h1>Trading Econonics</h1>
