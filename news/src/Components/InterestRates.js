@@ -7,16 +7,17 @@ class InterestRates extends Component {
   constructor() {
     super();
     this.state = {
-      FedInt: [],
+      FedInt: null,
       URL: 'https://www.quandl.com/api/v3/datasets/USTREASURY/YIELD.json?api_key=',
       quandl_key: process.env.QUANDL_API,
+      loaded: null,
       // interestData: dummyData,
     };
   }
 
   componentDidMount() {
     // this.getNews();
-    this.setState({FedInt:dummyData});
+    this.setState({FedInt:dummyData, loaded: true});
   }
 
 
@@ -39,20 +40,23 @@ class InterestRates extends Component {
   // };
 
   render() {
-
-    // if (this.state.FedInt.id) {
+    console.log(this.state.loaded)
+    console.log(this.state.FedInt);
+     if (this.state.loaded){
+      let interestRateData = this.state.FedInt;
       return (
         <div className='interestRateCards'>
-          {console.log(this.state.FedInt.dataset)}
           <div className="interestRateTable">
-
+            <h1>{interestRateData.dataset.id}</h1>
+            testing
           </div>
         </div>
-      );
-    // } else {
-    //   return <h1>Loading</h1>;
-    // }
+      )
+     }else{
+       return <h1>Loading Interest Rates</h1>
+     }
   }
 }
+
 
 export default InterestRates;
