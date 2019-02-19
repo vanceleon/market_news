@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {dummyData} from '../dummyData.js'
-
+import { dummyData } from '../dummyData.js';
 
 class InterestRates extends Component {
   constructor() {
     super();
     this.state = {
       FedInt: null,
-      URL: 'https://www.quandl.com/api/v3/datasets/USTREASURY/YIELD.json?api_key=',
+      URL:
+        'https://www.quandl.com/api/v3/datasets/USTREASURY/YIELD.json?api_key=',
       quandl_key: process.env.QUANDL_API,
-      loaded: null,
-      // interestData: dummyData,
+      loaded: null
     };
   }
 
   componentDidMount() {
     // this.getNews();
-    this.setState({FedInt:dummyData, loaded: true});
+    this.setState({ FedInt: dummyData, loaded: true });
   }
-
 
   // getNews = () => {
   //   // const URL = `${this.state.URL}${this.state.quandl_key}`;
@@ -40,29 +38,35 @@ class InterestRates extends Component {
   // };
 
   render() {
-     if (this.state.loaded){
+    if (this.state.loaded) {
       let interestRateData = this.state.FedInt.dataset;
       return (
         <div className='interestRateCards'>
-          <div className="interestRateTable">
+          <div className='interestRateTable'>
             <h1>{interestRateData.name}</h1>
             <table>
               <tr>
-                {interestRateData.column_names.map((header,i) =>{
-                  return (
-                    <th key={i}>{header}</th>
-                  )
+                {interestRateData.column_names.map((header, i) => {
+                  return <th key={i}>{header}</th>;
                 })}
               </tr>
+              {interestRateData.data.slice(0,10).map((daily) => {
+                return (
+                <tr>
+                  {daily.map((rate) => {
+                  return <td>{rate}</td>;
+                  })}
+                  </tr>
+                ) 
+              })}
             </table>
           </div>
         </div>
-      )
-     }else{
-       return <h1>Loading Interest Rates</h1>
-     }
+      );
+    } else {
+      return <h1>Loading Interest Rates</h1>;
+    }
   }
 }
-
 
 export default InterestRates;
