@@ -40,15 +40,21 @@ class InterestRates extends Component {
   // };
 
   render() {
-    console.log(this.state.loaded)
-    console.log(this.state.FedInt);
      if (this.state.loaded){
-      let interestRateData = this.state.FedInt;
+      let interestRateData = this.state.FedInt.dataset;
       return (
         <div className='interestRateCards'>
           <div className="interestRateTable">
-            <h1>{interestRateData.dataset.id}</h1>
-            testing
+            <h1>{interestRateData.name}</h1>
+            <table>
+              <tr>
+                {interestRateData.column_names.map((header,i) =>{
+                  return (
+                    <th key={i}>{header}</th>
+                  )
+                })}
+              </tr>
+            </table>
           </div>
         </div>
       )
