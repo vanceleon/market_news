@@ -13,7 +13,7 @@ class App extends Component {
         <NavBar/>
         <h1>Fed Yield Curves</h1>
         <InterestRates/>
-        <br></br>
+        {/* <br></br>
         <h1>WSJ</h1>
         <WSJ/>
         <h1>CNBC News</h1>
@@ -27,7 +27,7 @@ class App extends Component {
         <h1>Major Indexes</h1>
         <h1>Municipal Bonds</h1>
         <h1>Corporate Bonds</h1>
-        <h1>Commondities Overview</h1>
+        <h1>Commondities Overview</h1> */}
       </div>
     );
   }
