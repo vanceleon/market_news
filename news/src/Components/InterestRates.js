@@ -17,8 +17,6 @@ class InterestRates extends Component {
 
   componentDidMount() {
     this.getNews();
-    // this.setState({loaded: true})
-    // this.setState({ FedInt: dummyData, loaded: true });
   }
 
   getNews = () => {
@@ -39,7 +37,6 @@ class InterestRates extends Component {
     if (this.state.loaded) {
       let interestRateData = this.state.FedInt.dataset;
       return (
-        <div className='interestRateCards'>
           <div className='interestRateTable'>
             <h1>{interestRateData.name}</h1>
             <table>
@@ -59,7 +56,6 @@ class InterestRates extends Component {
               })}
             </table>
           </div>
-        </div>
       );
     } else {
       return <h1>Loading Interest Rates</h1>;

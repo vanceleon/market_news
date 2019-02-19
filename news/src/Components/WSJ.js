@@ -36,15 +36,14 @@ class WSJ extends Component {
 
     if (this.state.wsjNews.articles) {
       return (
-        <div className='wsj-Cards'>
+        <div className='newsCards'>
           {console.log(this.state.wsjNews.articles)}
           {this.state.wsjNews.articles.map((news, i) => {
             return (
               <React.Fragment key={i}>
-                <div>{news.author}</div>
-                <div>{news.title}</div>
+                <a href={news.url}>{news.title}</a>
                 <div>{news.description}</div>
-                <div>{news.url}</div>
+                <div>{news.author}</div>
               </React.Fragment>
             );
           })}
