@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { dummyData } from '../dummyData.js';
+// import { dummyData } from '../dummyData.js';
 
 class InterestRates extends Component {
   constructor() {
@@ -9,33 +9,31 @@ class InterestRates extends Component {
       FedInt: null,
       URL:
         'https://www.quandl.com/api/v3/datasets/USTREASURY/YIELD.json?api_key=',
-      quandl_key: process.env.QUANDL_API,
+      quandl_key: process.env.REACT_APP_QUANDL_API,
+      // quandl_key: "3X_mgMzWykRFrv6goGUd",
       loaded: null
     };
   }
 
   componentDidMount() {
-    // this.getNews();
-    this.setState({ FedInt: dummyData, loaded: true });
+    this.getNews();
+    // this.setState({loaded: true})
+    // this.setState({ FedInt: dummyData, loaded: true });
   }
 
-  // getNews = () => {
-  //   // const URL = `${this.state.URL}${this.state.quandl_key}`;
-  //   // const URL = this.state.URL
-  //   // const interestData = this.state.interestData;
-  //   axios
-  //     .get(dummyData)
-  //     .then(res => {
-  //       console.log(res);
-  //       const fedYield = res.data;
-  //       // console.log(wsj_news);
-  //       this.setState({ FedInt: fedYield });
-  //       {
-  //         console.log("interest rates", this.state.FedInt.dataset);
-  //       }
-  //     })
-  //     .catch(err => console.log('Error', err));
-  // };
+  getNews = () => {
+    // console.log(this.state.quandl_key)
+    const URL = `${this.state.URL}${this.state.quandl_key}`;
+    // const URL = this.state.URL
+    axios
+      .get(URL)
+      .then(res => {
+        const fedYield = res.data;
+        // console.log(wsj_news);
+        this.setState({ FedInt: fedYield, loaded: true });
+       })
+      .catch(err => console.log('Error', err));
+  };
 
   render() {
     if (this.state.loaded) {
