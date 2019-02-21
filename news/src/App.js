@@ -14,8 +14,11 @@ class App extends Component {
         <InterestRates/>
         <br></br>
         <WSJ/>
+        <br></br>
         <CNBC/>
+        <br></br>
         <TechCrunch/>
+        
         {/* <h1>World News</h1>
         <h1>Briefing.com</h1>
         <h1>Trading Econonics</h1>

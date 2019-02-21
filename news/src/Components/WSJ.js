@@ -46,12 +46,12 @@ class WSJ extends Component {
           {console.log(this.state.wsjNews.articles)}
           {this.state.wsjNews.articles.map((news, i) => {
             return (
-              <React.Fragment key={i}>
+              <div key={i} className="article" style={{margin: '20px 0'}}>
                 <a href={news.url}><img src={news.urlToImage } style={{width: '100%', borderRadius: '15px'}}/></a>
                 <a href={news.url}>{news.title}</a>
-                <div>{news.description}</div>
-                <div>{news.author}</div>
-              </React.Fragment>
+                <div style={{margin: '10px 0 0 0'}}>{news.description}</div>
+                <div style={{fontStyle: 'italic'}}>Author: {news.author}</div>
+              </div>
             );
           })}
         </div>
