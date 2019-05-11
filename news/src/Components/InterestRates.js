@@ -42,7 +42,7 @@ class InterestRates extends Component {
         <div style={{width:'75%'}}>
           <Header as='h1'>{interestRateData.name}</Header>
 
-          <table class='ui single line table'>
+          <table id='interestRates' class='ui single line table'>
             <thead>
               <tr>
                 {interestRateData.column_names.map((header, i) => {
