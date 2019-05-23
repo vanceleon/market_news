@@ -39,7 +39,7 @@ class WSJ extends Component {
     if (this.state.wsjNews.articles) {
       return (
         <Container text>
-        <Header as='h1'>
+        <Header as='h1' id='WSJ'>
           WSJ
           </Header>
         <div className='newsCards'>

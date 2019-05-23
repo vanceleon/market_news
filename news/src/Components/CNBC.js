@@ -37,7 +37,7 @@ class CNBC extends Component {
     if (this.state.cnbcNews.articles) {
       return (
         <Container text>
-        <Header as='h1'>
+        <Header as='h1' id='CNBC'>
           CNBC News
         </Header>
         <div className='newsCards'>
