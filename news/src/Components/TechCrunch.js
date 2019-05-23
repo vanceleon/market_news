@@ -37,7 +37,7 @@ class TechCrunch extends Component {
     if (this.state.TCNews.articles) {
       return (
         <Container text>
-        <Header as='h1'>
+        <Header as='h1' id='TechCrunch'>
           TechCrunch
         </Header>
         <div className='newsCards'>

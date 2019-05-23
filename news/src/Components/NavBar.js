@@ -26,9 +26,15 @@ class NavBar extends Component {
         <a className='navLinks' href='#interestRates'>
           Interest Rates
         </a>
-        <div>WSJ</div>
-        <div>CNBC</div>
-        <div>Tech Crunch</div>
+        <a className='navLinks' href='#WSJ'>
+          WSJ
+        </a>
+        <a className='navLinks' href='#CNBC'>
+          CNBC
+        </a>
+        <a className='navLinks' href='#TechCrunch'>
+          Tech Crunch
+        </a>
       </div>
     );
   }
