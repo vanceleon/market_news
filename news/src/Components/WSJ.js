@@ -27,9 +27,7 @@ class WSJ extends Component {
         const wsj_news = res.data;
         // console.log(wsj_news);
         this.setState({ wsjNews: wsj_news });
-        {
-          console.log(this.state.wsjNews.articles);
-        }
+
       })
       .catch(err => console.log('Error', err));
   };
@@ -47,7 +45,7 @@ class WSJ extends Component {
           {this.state.wsjNews.articles.map((news, i) => {
             return (
               <div key={i} className="article" style={{margin: '20px 0'}}>
-                <a href={news.url}><img src={news.urlToImage } style={{width: '100%', borderRadius: '15px'}}/></a>
+                <a href={news.url}><img src={news.urlToImage } alt="news-highlights" style={{width: '100%', borderRadius: '15px'}}/></a>
                 <a href={news.url}>{news.title}</a>
                 <div style={{margin: '10px 0 0 0'}}>{news.description}</div>
                 <div style={{fontStyle: 'italic'}}>Author: {news.author}</div>
