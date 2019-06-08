@@ -4,7 +4,7 @@ import CNBC from './Components/CNBC';
 import TechCrunch from './Components/TechCrunch';
 import InterestRates from './Components/InterestRates';
 import NavBar from './Components/NavBar';
-// import './App.css';
+import './App.css';
 
 class App extends Component {
   render() {

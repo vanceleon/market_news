@@ -11,7 +11,6 @@ class InterestRates extends Component {
       URL:
         'https://www.quandl.com/api/v3/datasets/USTREASURY/YIELD.json?api_key=',
       quandl_key: process.env.REACT_APP_QUANDL_API,
-      // quandl_key: "3X_mgMzWykRFrv6goGUd",
       loaded: null
     };
   }
@@ -21,14 +20,12 @@ class InterestRates extends Component {
   }
 
   getNews = () => {
-    // console.log(this.state.quandl_key)
     const URL = `${this.state.URL}${this.state.quandl_key}`;
-    // const URL = this.state.URL
     axios
       .get(URL)
       .then(res => {
         const fedYield = res.data;
-        // console.log(wsj_news);
+        console.log("interest rates info ", fedYield);
         this.setState({ FedInt: fedYield, loaded: true });
       })
       .catch(err => console.log('Error', err));
@@ -38,6 +35,9 @@ class InterestRates extends Component {
     if (this.state.loaded) {
       let interestRateData = this.state.FedInt.dataset;
       return (
+<div className="interest-rate-table-container">
+        
+
         <Container text>
         <div style={{width:'75%'}}>
           <Header as='h1'>{interestRateData.name}</Header>
@@ -65,6 +65,7 @@ class InterestRates extends Component {
         </div>
 
         </Container>
+</div>
       );
     } else {
       return (
