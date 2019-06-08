@@ -24,11 +24,20 @@ class WSJ extends Component {
       .get(URL)
       .then(res => {
         const wsj_news = res.data;
-        console.log('array of wsyj', wsj_news.articles[0]);
+        console.log('array of wsj', wsj_news.articles[0]);
         this.setState({ wsjNews: wsj_news, firstCard: wsj_news.articles[0] });
       })
       .catch(err => console.log('Error', err));
   };
+
+
+onCardClick = event => {
+  event.preventDefault();
+  const collapseCard = document.getElementsByClassName("collabpsibleCard")
+  console.log("I clicked the card");
+} 
+
+
 
   render() {
     if (this.state.wsjNews.articles) {
@@ -37,7 +46,7 @@ class WSJ extends Component {
           <Header as='h1' id='WSJ'>
             WSJ
           </Header>
-          <div className='newsCards'>
+          <div className='firstContainerCard' onCLick={(event) => this.onCardClick(event)}>
             <div className='article' style={{ margin: '20px 0' }}>
               <a href={this.state.firstCard.url}>
                 <img
