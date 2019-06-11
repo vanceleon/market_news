@@ -51,7 +51,7 @@
   border-radius: 15px !important;
 }
 
-
+/* 
 
 .collabpsibleCard {
   cursor: pointer;
@@ -63,11 +63,11 @@
 }
 
 /* default display none */
-.newsCards {
+/* .newsCards {
   display:none;
   overflow: hidden;
 
-}
+} */
 
 /* .article {
   margin: 10px 0 !important;
