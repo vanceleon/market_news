@@ -33,17 +33,21 @@
 
 .topMenu {
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
 
-.header{
+.header {
   /* display: flex; */
   margin: 0 auto;
   justify-content: center;
 }
 
-.navigation-bar{
+.navigation-bar {
   display: flex;
+  justify-content: center;
+}
+.navLinks {
+  padding: 5px;
 }
 
 /* .newsCards {
@@ -51,14 +55,18 @@
   width: 50%;
 } */
 
-.firstContainerCard{
-  border: 1px solid red;
+.firstContainerCard {
   padding: 10px;
 }
 
-.activeCards{
-  display: block;
+.see-more-button {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+}
 
+.activeCards {
+  display: block;
 }
 
 .collapsibleCards {
@@ -69,7 +77,7 @@
   display:none;
 } */
 
-.newsImage{
+.newsImage {
   width: 100%;
   border-radius: 15px !important;
 }

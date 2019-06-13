@@ -47,7 +47,7 @@ const CentralNewsFuncComponent = props => {
           })}
         </div>
         <div
-          className='firstContainerCard'
+          className='see-more-button'
           onClick={props.handleClick}
         >
         {props.isToggleOn ? 'See Fewer Articles' : 'See More Articles'}
