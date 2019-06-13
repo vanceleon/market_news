@@ -21,6 +21,18 @@ class WSJ extends Component {
     this.getNews();
   }
 
+  componentDidUpdate() {
+    const collapseCard = document.getElementsByClassName('collapsibleCards');
+    if(this.state.isToggleOn) {
+      this.seeMoreClick();
+    }else{
+      for(let i = 0; i < collapseCard.length; i++) {
+        // console.log(collapseCard)
+        collapseCard[i].style.display = 'none';  
+      }
+    }
+  }
+
   getNews = () => {
     const URL = `${this.state.URL}${this.state.news_key}`;
     axios
@@ -32,11 +44,32 @@ class WSJ extends Component {
       .catch(err => console.log('Error', err));
   };
 
-  seeMoreClick() {
+  handleClick = () => {
     // event.preventDefault();
-    // const collapseCard = document.getElementsByClassName('collabpsibleCard');
     this.setState({isToggleOn: !this.state.isToggleOn});
-    console.log("clicked event", this.state.isToggleOn)
+  }
+
+  seeMoreClick() {
+    const collapseCard = document.getElementsByClassName('collapsibleCards');
+    console.log("class id",collapseCard);
+    for(let i = 0; i < collapseCard.length; i++) {
+      collapseCard[i].style.display = 'block';
+      // let collapseArticle = collapseCard.nextElementSibling;
+      // console.log("next article", collapseArticle);
+      // if(collapseArticle.style.display === 'block') {
+      //   collapseArticle.style.display = 'none';
+      // }else {
+      //   collapseArticle.style.display = 'block';
+      // }
+
+    }
+    // if(this.state.isToggleOn) {
+      // collapseCard.classList.remove('collapsibleCard')
+    // }else{
+      // collapseCard.classList.remove('activeCards')
+      // console.log(this.state.isToggleOn);
+      // collapseCard.classList.add('collapsibleCard')
+    // }
     console.log('I clicked the card');
   };
 
@@ -48,6 +81,8 @@ class WSJ extends Component {
         firstCard={this.state.firstCard}
         getNews={this.getNews}
         seeMoreClick={this.seeMoreClick}
+        isToggleOn={this.state.isToggleOn}
+        handleClick={this.handleClick}
       />
     )
   }

@@ -25,15 +25,10 @@ const CentralNewsFuncComponent = props => {
             Author: {props.firstCard.author}
           </div>
         </div>
-        <div
-          className='firstContainerCard'
-          onClick={props.seeMoreClick}
-        >
-        See More Articles
-        </div>
-        <div className='newsCards'>
-          {console.log(props.newsInfo.articles)}
-          {props.newsInfo.articles.map((news, i) => {
+        
+        <div className='collapsibleCards'>
+          {props.newsInfo.articles.slice(1).map((news, i) => {
+
             return (
               <div key={i} className='article' style={{ margin: '20px 0' }}>
                 <a href={news.url}>
@@ -48,7 +43,14 @@ const CentralNewsFuncComponent = props => {
                 <div style={{ fontStyle: 'italic' }}>Author: {news.author}</div>
               </div>
             );
+            
           })}
+        </div>
+        <div
+          className='firstContainerCard'
+          onClick={props.handleClick}
+        >
+        See More Articles
         </div>
       </Container>
     );

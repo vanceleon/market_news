@@ -56,6 +56,19 @@
   padding: 10px;
 }
 
+.activeCards{
+  display: block;
+
+}
+
+.collapsibleCards {
+  display: none;
+}
+
+/* .collapseArticle{
+  display:none;
+} */
+
 .newsImage{
   width: 100%;
   border-radius: 15px !important;
