@@ -31,8 +31,8 @@ class CNBC extends Component {
   };
 
   onCardClick = event => {
-    event.preventDefault();
-    const collapseCard = document.getElementsByClassName('collabpsibleCard');
+    // event.preventDefault();
+    // const collapseCard = document.getElementsByClassName('collabpsibleCard');
     console.log('I clicked the card');
   };
 

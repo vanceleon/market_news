@@ -27,7 +27,7 @@ const CentralNewsFuncComponent = props => {
         </div>
         <div
           className='firstContainerCard'
-          onCLick={event => props.onCardClick(event)}
+          onClick={props.seeMoreClick}
         >
         See More Articles
         </div>

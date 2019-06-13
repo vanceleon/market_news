@@ -11,8 +11,10 @@ class WSJ extends Component {
       firstCard: [],
       URL:
         'https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal&apiKey=',
-      wsj_key: process.env.REACT_APP_NEWS_API
+      news_key: process.env.REACT_APP_NEWS_API,
+      isToggleOn: false,
     };
+    this.seeMoreClick = this.seeMoreClick.bind(this);
   }
 
   componentDidMount() {
@@ -20,7 +22,7 @@ class WSJ extends Component {
   }
 
   getNews = () => {
-    const URL = `${this.state.URL}${this.state.wsj_key}`;
+    const URL = `${this.state.URL}${this.state.news_key}`;
     axios
       .get(URL)
       .then(res => {
@@ -30,9 +32,11 @@ class WSJ extends Component {
       .catch(err => console.log('Error', err));
   };
 
-  onCardClick = event => {
-    event.preventDefault();
-    const collapseCard = document.getElementsByClassName('collabpsibleCard');
+  seeMoreClick() {
+    // event.preventDefault();
+    // const collapseCard = document.getElementsByClassName('collabpsibleCard');
+    this.setState({isToggleOn: !this.state.isToggleOn});
+    console.log("clicked event", this.state.isToggleOn)
     console.log('I clicked the card');
   };
 
@@ -43,7 +47,7 @@ class WSJ extends Component {
         newsInfo={this.state.newsInfo}
         firstCard={this.state.firstCard}
         getNews={this.getNews}
-        onCardClick={this.onCardClick}
+        seeMoreClick={this.seeMoreClick}
       />
     )
   }

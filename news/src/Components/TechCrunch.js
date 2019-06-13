@@ -11,7 +11,8 @@ class TechCrunch extends Component {
       firstCard: [],
       URL:
         'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=',
-      news_key: process.env.REACT_APP_NEWS_API
+      news_key: process.env.REACT_APP_NEWS_API,
+      isToggleOn: false,
     };
   }
 
@@ -30,9 +31,9 @@ class TechCrunch extends Component {
       .catch(err => console.log('Error', err));
   };
 
-  onCardClick = event => {
-    event.preventDefault();
-    const collapseCard = document.getElementsByClassName('collabpsibleCard');
+  onCardClick = () => {
+    // event.preventDefault();
+    // const collapseCard = document.getElementsByClassName('collabpsibleCard');
     console.log('I clicked the card');
   };
 
