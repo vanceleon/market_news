@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import CentralNewsFuncComponent from './NewsFunc'; 
+import CentralNewsFuncComponent from './NewsFunc';
 
 class WSJ extends Component {
   constructor() {
@@ -23,12 +23,12 @@ class WSJ extends Component {
 
   componentDidUpdate() {
     const collapseCard = document.getElementsByClassName('collapsibleCards');
-    if(this.state.isToggleOn) {
+    if (this.state.isToggleOn) {
       this.seeMoreClick();
-    }else{
-      for(let i = 0; i < collapseCard.length; i++) {
+    } else {
+      for (let i = 0; i < collapseCard.length; i++) {
         // console.log(collapseCard)
-        collapseCard[i].style.display = 'none';  
+        collapseCard[i].style.display = 'none';
       }
     }
   }
@@ -39,39 +39,28 @@ class WSJ extends Component {
       .get(URL)
       .then(res => {
         const newsDataRetrieve = res.data;
-        this.setState({ newsInfo: newsDataRetrieve, firstCard: newsDataRetrieve.articles[0] });
+        this.setState({
+          newsInfo: newsDataRetrieve,
+          firstCard: newsDataRetrieve.articles[0]
+        });
       })
       .catch(err => console.log('Error', err));
   };
 
   handleClick = () => {
     // event.preventDefault();
-    this.setState({isToggleOn: !this.state.isToggleOn});
-  }
+    this.setState({ isToggleOn: !this.state.isToggleOn });
+  };
 
   seeMoreClick() {
     const collapseCard = document.getElementsByClassName('collapsibleCards');
-    console.log("class id",collapseCard);
-    for(let i = 0; i < collapseCard.length; i++) {
-      collapseCard[i].style.display = 'block';
-      // let collapseArticle = collapseCard.nextElementSibling;
-      // console.log("next article", collapseArticle);
-      // if(collapseArticle.style.display === 'block') {
-      //   collapseArticle.style.display = 'none';
-      // }else {
-      //   collapseArticle.style.display = 'block';
-      // }
+    console.log('class id', collapseCard);
+      for (let i = 0; i < collapseCard.length; i++) {
+        collapseCard[i].style.display = 'block';
+      }
 
-    }
-    // if(this.state.isToggleOn) {
-      // collapseCard.classList.remove('collapsibleCard')
-    // }else{
-      // collapseCard.classList.remove('activeCards')
-      // console.log(this.state.isToggleOn);
-      // collapseCard.classList.add('collapsibleCard')
-    // }
-    console.log('I clicked the card');
-  };
+    
+  }
 
   render() {
     return (
@@ -84,7 +73,7 @@ class WSJ extends Component {
         isToggleOn={this.state.isToggleOn}
         handleClick={this.handleClick}
       />
-    )
+    );
   }
 }
 
