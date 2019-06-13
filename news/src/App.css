@@ -36,6 +36,16 @@
   justify-content: center
 }
 
+.header{
+  /* display: flex; */
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.navigation-bar{
+  display: flex;
+}
+
 /* .newsCards {
   display:flex;
   width: 50%;
