@@ -7,7 +7,7 @@ class WSJ extends Component {
     super();
     this.state = {
       newsHeader: 'WSJ',
-      wsjNews: [],
+      newsInfo: [],
       firstCard: [],
       URL:
         'https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal&apiKey=',
@@ -24,8 +24,8 @@ class WSJ extends Component {
     axios
       .get(URL)
       .then(res => {
-        const wsj_news = res.data;
-        this.setState({ wsjNews: wsj_news, firstCard: wsj_news.articles[0] });
+        const newsDataRetrieve = res.data;
+        this.setState({ newsInfo: newsDataRetrieve, firstCard: newsDataRetrieve.articles[0] });
       })
       .catch(err => console.log('Error', err));
   };
@@ -40,7 +40,7 @@ class WSJ extends Component {
     return (
       <CentralNewsFuncComponent
         newsHeader={this.state.newsHeader}
-        newsInfo={this.state.wsjNews}
+        newsInfo={this.state.newsInfo}
         firstCard={this.state.firstCard}
         getNews={this.getNews}
         onCardClick={this.onCardClick}
