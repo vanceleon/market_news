@@ -19,22 +19,22 @@ class NavBar extends Component {
 
   render() {
     return (
-      <div
-        style={{ display: 'flex', justifyContent: 'center', margin: '15px 0' }}
-      >
+      <div className='header'>
         <h1>Morning Briefing</h1>
-        <a className='navLinks' href='#interestRates'>
-          Interest Rates
-        </a>
-        <a className='navLinks' href='#WSJ'>
-          WSJ
-        </a>
-        <a className='navLinks' href='#CNBC'>
-          CNBC
-        </a>
-        <a className='navLinks' href='#TechCrunch'>
-          Tech Crunch
-        </a>
+        <div className='navigation-bar'>
+          <a className='navLinks' href='#interestRates'>
+            Interest Rates
+          </a>
+          <a className='navLinks' href='#WSJ'>
+            WSJ
+          </a>
+          <a className='navLinks' href='#CNBC'>
+            CNBC
+          </a>
+          <a className='navLinks' href='#TechCrunch'>
+            Tech Crunch
+          </a>
+        </div>
       </div>
     );
   }
