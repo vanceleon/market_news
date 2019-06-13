@@ -13,6 +13,7 @@ class WSJ extends Component {
         'https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal&apiKey=',
       news_key: process.env.REACT_APP_NEWS_API,
       isToggleOn: false,
+      navLinkId: 'WSJ',
     };
     this.seeMoreClick = this.seeMoreClick.bind(this);
   }
@@ -72,6 +73,7 @@ class WSJ extends Component {
         seeMoreClick={this.seeMoreClick}
         isToggleOn={this.state.isToggleOn}
         handleClick={this.handleClick}
+        navLinkId={this.state.navLinkId}
       />
     );
   }

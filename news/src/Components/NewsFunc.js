@@ -5,7 +5,7 @@ const CentralNewsFuncComponent = props => {
   if (props.newsInfo.articles) {
     return (
       <Container text>
-        <Header as='h1' id='WSJ'>
+        <Header as='h1' id={props.navLinkId}>
           {props.newsHeader}
         </Header>
 

@@ -11,13 +11,14 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar/>
-        <InterestRates/>
         <br></br>
         <WSJ/>
         <br></br>
         <CNBC/>
         <br></br>
         <TechCrunch/>
+        <br></br>
+        <InterestRates/>
         
         {/* <h1>World News</h1>
         <h1>Briefing.com</h1>
