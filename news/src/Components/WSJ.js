@@ -30,7 +30,7 @@ class WSJ extends Component {
     } else {
       for (let i = 0; i < collapseCard.length; i++) {
         // console.log(collapseCard)
-        collapseCard[i].style.display = 'none';
+        collapseCard[i].classList.add('collapsibleCards');
       }
     }
   }
@@ -59,16 +59,25 @@ class WSJ extends Component {
     console.log('class id', collapseCard);
       for (let i = 0; i < collapseCard.length; i++) {
         console.log(collapseCard[i].classList)
+        while (collapseCard[i].classList.length > 0) {
+          console.log('in while loop')
+          collapseCard[i].classList.remove(collapseCard[i].classList.length - 1);
+          // collapseCard[i].classList.length--;
+       }
+        console.log(collapseCard[i].classList)
+
         collapseCard[i].classList.add(this.state.cardClass);
         console.log(collapseCard[i].classList)
-        collapseCard[i].classList.remove('collapibleCards');
       }
   }
 
-  seeFewerClick () {
-    const collapseCard = document.getElementsByClassName('collapsibleCards');
-    
-  }
+  // seeFewerClick () {
+  //   const collapseCard = document.getElementsByClassName(this.state.cardClass);
+  //   for (let i = 0; i < collapseCard.length; i++) {
+  //     collapseCard[i].classList.remove();
+  //     collapseCard[i].classList.add('collapsibleCards');
+  //   }
+  // }
 
   render() {
     return (
@@ -78,7 +87,6 @@ class WSJ extends Component {
         firstCard={this.state.firstCard}
         getNews={this.getNews}
         seeMoreClick={this.seeMoreClick}
-        seeFewerClick={this.seeFewerClick}
         isToggleOn={this.state.isToggleOn}
         handleClick={this.handleClick}
         navLinkId={this.state.navLinkId}
@@ -88,3 +96,4 @@ class WSJ extends Component {
 }
 
 export default WSJ;
+{/* seeFewerClick={this.seeFewerClick} */}
