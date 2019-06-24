@@ -14,6 +14,7 @@ class WSJ extends Component {
       news_key: process.env.REACT_APP_NEWS_API,
       isToggleOn: false,
       navLinkId: 'WSJ',
+      cardClass: 'wsj'
     };
     this.seeMoreClick = this.seeMoreClick.bind(this);
   }
@@ -57,9 +58,15 @@ class WSJ extends Component {
     const collapseCard = document.getElementsByClassName('collapsibleCards');
     console.log('class id', collapseCard);
       for (let i = 0; i < collapseCard.length; i++) {
-        collapseCard[i].style.display = 'block';
+        console.log(collapseCard[i].classList)
+        collapseCard[i].classList.add(this.state.cardClass);
+        console.log(collapseCard[i].classList)
+        collapseCard[i].classList.remove('collapibleCards');
       }
+  }
 
+  seeFewerClick () {
+    const collapseCard = document.getElementsByClassName('collapsibleCards');
     
   }
 
@@ -71,6 +78,7 @@ class WSJ extends Component {
         firstCard={this.state.firstCard}
         getNews={this.getNews}
         seeMoreClick={this.seeMoreClick}
+        seeFewerClick={this.seeFewerClick}
         isToggleOn={this.state.isToggleOn}
         handleClick={this.handleClick}
         navLinkId={this.state.navLinkId}
