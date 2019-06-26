@@ -13,6 +13,7 @@ class TechCrunch extends Component {
         'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=',
       news_key: process.env.REACT_APP_NEWS_API,
       isToggleOn: false,
+      navLinkId: 'TechCrunch',
     };
     this.seeMoreClick = this.seeMoreClick.bind(this);
   }
@@ -73,6 +74,7 @@ class TechCrunch extends Component {
         seeMoreClick={this.seeMoreClick}
         isToggleOn={this.state.isToggleOn}
         handleClick={this.handleClick}
+        navLinkId={this.state.navLinkId}
       />
     );
   }

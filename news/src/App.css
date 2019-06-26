@@ -65,7 +65,13 @@
   padding: 10px;
 }
 
-.activeCards {
+.wsj {
+  display: block;
+}
+.cnbc {
+  display: block;
+}
+.tech-crunch {
   display: block;
 }
 

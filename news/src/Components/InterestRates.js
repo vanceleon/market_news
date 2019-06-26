@@ -42,7 +42,7 @@ class InterestRates extends Component {
         <div style={{width:'75%'}}>
           <Header as='h1'>{interestRateData.name}</Header>
 
-          <table id='interestRates' class='ui single line table'>
+          <table id='interestRates' className='ui single line table'>
             <thead>
               <tr>
                 {interestRateData.column_names.map((header, i) => {
@@ -69,9 +69,9 @@ class InterestRates extends Component {
       );
     } else {
       return (
-        <div class='ui segment'>
-          <div class='ui active inverted dimmer'>
-            <div class='ui text loader'>Loading</div>
+        <div className='ui segment'>
+          <div className='ui active inverted dimmer'>
+            <div className='ui text loader'>Loading</div>
           </div>
           <p />
         </div>

@@ -5,7 +5,7 @@ const CentralNewsFuncComponent = props => {
   if (props.newsInfo.articles) {
     return (
       <Container text>
-        <Header as='h1' id='WSJ'>
+        <Header as='h1' id={props.navLinkId}>
           {props.newsHeader}
         </Header>
 
@@ -56,9 +56,9 @@ const CentralNewsFuncComponent = props => {
     );
   } else {
     return (
-      <div class='ui segment'>
-        <div class='ui active inverted dimmer'>
-          <div class='ui text loader'>Loading</div>
+      <div className='ui segment'>
+        <div className='ui active inverted dimmer'>
+          <div className='ui text loader'>Loading</div>
         </div>
         <p />
       </div>

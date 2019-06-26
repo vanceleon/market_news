@@ -13,6 +13,8 @@ class WSJ extends Component {
         'https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal&apiKey=',
       news_key: process.env.REACT_APP_NEWS_API,
       isToggleOn: false,
+      navLinkId: 'WSJ',
+      cardClass: 'wsj'
     };
     this.seeMoreClick = this.seeMoreClick.bind(this);
   }
@@ -28,7 +30,7 @@ class WSJ extends Component {
     } else {
       for (let i = 0; i < collapseCard.length; i++) {
         // console.log(collapseCard)
-        collapseCard[i].style.display = 'none';
+        collapseCard[i].classList.add('collapsibleCards');
       }
     }
   }
@@ -56,11 +58,26 @@ class WSJ extends Component {
     const collapseCard = document.getElementsByClassName('collapsibleCards');
     console.log('class id', collapseCard);
       for (let i = 0; i < collapseCard.length; i++) {
-        collapseCard[i].style.display = 'block';
-      }
+        console.log(collapseCard[i].classList)
+        while (collapseCard[i].classList.length > 0) {
+          console.log('in while loop')
+          collapseCard[i].classList.remove(collapseCard[i].classList.length - 1);
+          // collapseCard[i].classList.length--;
+       }
+        console.log(collapseCard[i].classList)
 
-    
+        collapseCard[i].classList.add(this.state.cardClass);
+        console.log(collapseCard[i].classList)
+      }
   }
+
+  // seeFewerClick () {
+  //   const collapseCard = document.getElementsByClassName(this.state.cardClass);
+  //   for (let i = 0; i < collapseCard.length; i++) {
+  //     collapseCard[i].classList.remove();
+  //     collapseCard[i].classList.add('collapsibleCards');
+  //   }
+  // }
 
   render() {
     return (
@@ -72,9 +89,11 @@ class WSJ extends Component {
         seeMoreClick={this.seeMoreClick}
         isToggleOn={this.state.isToggleOn}
         handleClick={this.handleClick}
+        navLinkId={this.state.navLinkId}
       />
     );
   }
 }
 
 export default WSJ;
+{/* seeFewerClick={this.seeFewerClick} */}
