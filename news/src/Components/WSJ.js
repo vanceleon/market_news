@@ -16,23 +16,11 @@ class WSJ extends Component {
       navLinkId: 'WSJ',
       cardClass: 'wsj'
     };
-    this.seeMoreClick = this.seeMoreClick.bind(this);
+    // this.seeMoreClick = this.seeMoreClick.bind(this);
   }
 
   componentDidMount() {
     this.getNews();
-  }
-
-  componentDidUpdate() {
-    const collapseCard = document.getElementsByClassName('collapsibleCards');
-    if (this.state.isToggleOn) {
-      this.seeMoreClick();
-    } else {
-      for (let i = 0; i < collapseCard.length; i++) {
-        collapseCard[i].setAttribute('class', 'collapsibleCards');
-        // collapseCard[i].classList.add('collapsibleCards');
-      }
-    }
   }
 
   getNews = () => {
@@ -54,47 +42,6 @@ class WSJ extends Component {
     this.setState({ isToggleOn: !this.state.isToggleOn });
   };
 
-  // seeMoreClick() {
-  //   const collapseCard = document.getElementsByClassName('collapsibleCards');
-  //   console.log('class id', collapseCard);
-  //     for (let i = 0; i < collapseCard.length; i++) {
-  //       collapseCard[i].classList.add(this.state.cardClass);
-  //       console.log(collapseCard[i].classList)
-  //     }
-  // }
-
-  // seeMoreClick() {
-  //   const collapseCard = document.getElementsByClassName('collapsibleCards');
-  //   console.log('class id', collapseCard);
-  //     for (let i = 0; i < collapseCard.length; i++) {
-  //       console.log(this.state.cardClass);
-  //       collapseCard[i].classList.add(this.state.cardClass);
-  //     }
-
-    
-  // }
-
-    seeMoreClick() {
-    const collapseCard = document.getElementsByClassName('collapsibleCards');
-    console.log('class id', collapseCard);
-    if(this.state.isToggleOn) {
-      for (let i = 0; i < collapseCard.length; i++) {
-        console.log(this.state.cardClass)
-        collapseCard[i].setAttribute('class', this.state.cardId);
-      }
-    }    
-  }
-
-
-
-
-  // seeFewerClick () {
-  //   const collapseCard = document.getElementsByClassName(this.state.cardClass);
-  //   for (let i = 0; i < collapseCard.length; i++) {
-  //     collapseCard[i].classList.remove();
-  //     collapseCard[i].classList.add('collapsibleCards');
-  //   }
-  // }
 
   render() {
     return (

@@ -64,8 +64,14 @@
   border-radius: 20px;
   padding: 10px;
 }
-.collapsibleCards .wsj{
-  display: block;
+.collapsibleCards-wsj{
+  display: block !important;
+}
+.collapsibleCards-cnbc{
+  display: block !important;
+}
+.collapsibleCards-techCrunch{
+  display: block !important;
 }
 .collapsibleCards {
   display: none;

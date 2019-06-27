@@ -2,12 +2,12 @@ import React from 'react';
 import { Container, Header } from 'semantic-ui-react';
 
 const CentralNewsFuncComponent = props => {
+  let classUnique = 'collapsibleCards';
   if (props.newsInfo.articles) {
-    let className = 'collapsibleCards';
-    console.log("props cardClass", props.cardClass)
+    // console.log("props cardClass", props.cardClass)
     if(props.isToggleOn) {
-      className += ` ${props.cardClass}`;
-      console.log("props CardClass 2", className);
+      classUnique += `-${props.cardClass}`;
+      // console.log("props CardClass 2", className);
     }
     return (
       <Container text>
@@ -32,7 +32,7 @@ const CentralNewsFuncComponent = props => {
           </div>
         </div>
         
-        <div className={className}>
+        <div className={classUnique}>
           {props.newsInfo.articles.slice(1).map((news, i) => {
 
             return (
