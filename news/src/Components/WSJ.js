@@ -29,8 +29,8 @@ class WSJ extends Component {
       this.seeMoreClick();
     } else {
       for (let i = 0; i < collapseCard.length; i++) {
-        // console.log(collapseCard)
-        collapseCard[i].classList.add('collapsibleCards');
+        collapseCard[i].setAttribute('class', 'collapsibleCards');
+        // collapseCard[i].classList.add('collapsibleCards');
       }
     }
   }
@@ -54,22 +54,39 @@ class WSJ extends Component {
     this.setState({ isToggleOn: !this.state.isToggleOn });
   };
 
-  seeMoreClick() {
+  // seeMoreClick() {
+  //   const collapseCard = document.getElementsByClassName('collapsibleCards');
+  //   console.log('class id', collapseCard);
+  //     for (let i = 0; i < collapseCard.length; i++) {
+  //       collapseCard[i].classList.add(this.state.cardClass);
+  //       console.log(collapseCard[i].classList)
+  //     }
+  // }
+
+  // seeMoreClick() {
+  //   const collapseCard = document.getElementsByClassName('collapsibleCards');
+  //   console.log('class id', collapseCard);
+  //     for (let i = 0; i < collapseCard.length; i++) {
+  //       console.log(this.state.cardClass);
+  //       collapseCard[i].classList.add(this.state.cardClass);
+  //     }
+
+    
+  // }
+
+    seeMoreClick() {
     const collapseCard = document.getElementsByClassName('collapsibleCards');
     console.log('class id', collapseCard);
+    if(this.state.isToggleOn) {
       for (let i = 0; i < collapseCard.length; i++) {
-        console.log(collapseCard[i].classList)
-        while (collapseCard[i].classList.length > 0) {
-          console.log('in while loop')
-          collapseCard[i].classList.remove(collapseCard[i].classList.length - 1);
-          // collapseCard[i].classList.length--;
-       }
-        console.log(collapseCard[i].classList)
-
-        collapseCard[i].classList.add(this.state.cardClass);
-        console.log(collapseCard[i].classList)
+        console.log(this.state.cardClass)
+        collapseCard[i].setAttribute('class', this.state.cardId);
       }
+    }    
   }
+
+
+
 
   // seeFewerClick () {
   //   const collapseCard = document.getElementsByClassName(this.state.cardClass);
@@ -90,6 +107,7 @@ class WSJ extends Component {
         isToggleOn={this.state.isToggleOn}
         handleClick={this.handleClick}
         navLinkId={this.state.navLinkId}
+        cardClass={this.state.cardClass}
       />
     );
   }
@@ -97,3 +115,9 @@ class WSJ extends Component {
 
 export default WSJ;
 {/* seeFewerClick={this.seeFewerClick} */}
+
+
+
+
+
+

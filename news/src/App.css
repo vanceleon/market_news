@@ -64,10 +64,15 @@
   border-radius: 20px;
   padding: 10px;
 }
-
-.wsj {
+.collapsibleCards .wsj{
   display: block;
 }
+.collapsibleCards {
+  display: none;
+}
+
+
+
 .cnbc {
   display: block;
 }
@@ -75,9 +80,7 @@
   display: block;
 }
 
-.collapsibleCards {
-  display: none;
-}
+
 
 /* .collapseArticle{
   display:none;

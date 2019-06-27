@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import CentralNewsFuncComponent from './NewsFunc'; 
+import CentralNewsFuncComponent from './NewsFunc';
 
-class TechCrunch extends Component {
+class WSJ extends Component {
   constructor() {
     super();
     this.state = {
-      newsHeader: 'Tech Crunch',
+      newsHeader: 'WSJ',
       newsInfo: [],
       firstCard: [],
       URL:
-        'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=',
+        'https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal&apiKey=',
       news_key: process.env.REACT_APP_NEWS_API,
       isToggleOn: false,
-      navLinkId: 'TechCrunch',
-      cardClass: 'wsj',
+      navLinkId: 'WSJ',
     };
     this.seeMoreClick = this.seeMoreClick.bind(this);
   }
@@ -22,7 +21,6 @@ class TechCrunch extends Component {
   componentDidMount() {
     this.getNews();
   }
-
 
   componentDidUpdate() {
     const collapseCard = document.getElementsByClassName('collapsibleCards');
@@ -81,4 +79,4 @@ class TechCrunch extends Component {
   }
 }
 
-export default TechCrunch;
+export default WSJ;

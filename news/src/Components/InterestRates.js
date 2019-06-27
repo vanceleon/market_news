@@ -25,7 +25,7 @@ class InterestRates extends Component {
       .get(URL)
       .then(res => {
         const fedYield = res.data;
-        console.log("interest rates info ", fedYield);
+        // console.log("interest rates info ", fedYield);
         this.setState({ FedInt: fedYield, loaded: true });
       })
       .catch(err => console.log('Error', err));

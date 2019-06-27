@@ -14,6 +14,7 @@ class CNBC extends Component {
       news_key: process.env.REACT_APP_NEWS_API,
       isToggleOn: false,
       navLinkId: 'CNBC',
+      cardClass: 'wsj',
     };
     this.seeMoreClick = this.seeMoreClick.bind(this);
   }
