@@ -64,10 +64,21 @@
   border-radius: 20px;
   padding: 10px;
 }
-
-.wsj {
-  display: block;
+.collapsibleCards-wsj{
+  display: block !important;
 }
+.collapsibleCards-cnbc{
+  display: block !important;
+}
+.collapsibleCards-techCrunch{
+  display: block !important;
+}
+.collapsibleCards {
+  display: none;
+}
+
+
+
 .cnbc {
   display: block;
 }
@@ -75,9 +86,7 @@
   display: block;
 }
 
-.collapsibleCards {
-  display: none;
-}
+
 
 /* .collapseArticle{
   display:none;

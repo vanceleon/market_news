@@ -14,24 +14,12 @@ class CNBC extends Component {
       news_key: process.env.REACT_APP_NEWS_API,
       isToggleOn: false,
       navLinkId: 'CNBC',
+      cardClass: 'cnbc',
     };
-    this.seeMoreClick = this.seeMoreClick.bind(this);
   }
 
   componentDidMount() {
     this.getNews();
-  }
-
-  componentDidUpdate() {
-    const collapseCard = document.getElementsByClassName('collapsibleCards');
-    if (this.state.isToggleOn) {
-      this.seeMoreClick();
-    } else {
-      for (let i = 0; i < collapseCard.length; i++) {
-        // console.log(collapseCard)
-        collapseCard[i].style.display = 'none';
-      }
-    }
   }
 
   getNews = () => {
@@ -53,16 +41,6 @@ class CNBC extends Component {
     this.setState({ isToggleOn: !this.state.isToggleOn });
   };
 
-  seeMoreClick() {
-    const collapseCard = document.getElementsByClassName('collapsibleCards');
-    console.log('class id', collapseCard);
-      for (let i = 0; i < collapseCard.length; i++) {
-        collapseCard[i].style.display = 'block';
-      }
-
-    
-  }
-
   render() {
     return (
       <CentralNewsFuncComponent
@@ -74,6 +52,7 @@ class CNBC extends Component {
         isToggleOn={this.state.isToggleOn}
         handleClick={this.handleClick}
         navLinkId={this.state.navLinkId}
+        cardClass={this.state.cardClass}
       />
     );
   }
