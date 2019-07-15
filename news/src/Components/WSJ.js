@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import CentralNewsFuncComponent from './NewsFunc';
+// import getNews from './functions/newsFunc';
 
 class WSJ extends Component {
   constructor() {
@@ -16,14 +17,12 @@ class WSJ extends Component {
       navLinkId: 'WSJ',
       cardClass: 'wsj'
     };
-    // this.seeMoreClick = this.seeMoreClick.bind(this);
   }
 
   componentDidMount() {
     this.getNews();
   }
-
-  getNews = () => {
+  getNews(){
     const URL = `${this.state.URL}${this.state.news_key}`;
     axios
       .get(URL)
@@ -36,6 +35,7 @@ class WSJ extends Component {
       })
       .catch(err => console.log('Error', err));
   };
+  
 
   handleClick = () => {
     // event.preventDefault();

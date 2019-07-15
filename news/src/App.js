@@ -4,7 +4,6 @@ import CNBC from './Components/CNBC';
 import TechCrunch from './Components/TechCrunch';
 import InterestRates from './Components/InterestRates';
 import NavBar from './Components/NavBar';
-import Chart from './Components/firstChart';
 import './App.css';
 
 class App extends Component {
@@ -21,7 +20,6 @@ class App extends Component {
         <br></br>
         <InterestRates/>
 
-        <Chart/>
         {/* <h1>World News</h1>
         <h1>Briefing.com</h1>
         <h1>Trading Econonics</h1>
