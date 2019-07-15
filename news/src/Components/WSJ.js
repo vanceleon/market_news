@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import CentralNewsFuncComponent from './NewsFunc';
-// import getNews from './functions/newsFunc';
+
 
 class WSJ extends Component {
   constructor() {
