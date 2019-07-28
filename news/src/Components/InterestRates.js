@@ -34,6 +34,7 @@ class InterestRates extends Component {
   render() {
     if (this.state.loaded) {
       let interestRateData = this.state.FedInt.dataset;
+      console.log("interest rate dataset", interestRateData);
       return (
 <div className="interest-rate-table-container">
         

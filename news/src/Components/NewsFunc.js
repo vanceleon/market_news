@@ -34,7 +34,6 @@ const CentralNewsFuncComponent = props => {
         
         <div className={classUnique}>
           {props.newsInfo.articles.slice(1).map((news, i) => {
-
             return (
               <div key={i} className='article' style={{ margin: '20px 0' }}>
                 <a href={news.url}>

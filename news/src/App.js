@@ -8,7 +8,7 @@ import './App.css';
 
 class App extends Component {
   render() {
-    return (
+      return (
       <div className="App">
         <NavBar/>
         <br></br>
@@ -19,7 +19,7 @@ class App extends Component {
         <TechCrunch/>
         <br></br>
         <InterestRates/>
-        
+
         {/* <h1>World News</h1>
         <h1>Briefing.com</h1>
         <h1>Trading Econonics</h1>
