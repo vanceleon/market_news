@@ -12,22 +12,22 @@ class App extends Component {
       <div className="App">
         <NavBar/>
         <br></br>
-        <WSJ/>
+        {/* <WSJ/> */}
         <br></br>
-        <CNBC/>
+        {/* <CNBC/> */}
         <br></br>
-        <TechCrunch/>
+        {/* <TechCrunch/> */}
         <br></br>
-        <Example/>
+        <InterestRates/>
 
-        {/* <h1>World News</h1>
+        <h1>World News</h1>
         <h1>Briefing.com</h1>
         <h1>Trading Econonics</h1>
         <h1>Currency Overview</h1>
         <h1>Major Indexes</h1>
         <h1>Municipal Bonds</h1>
         <h1>Corporate Bonds</h1>
-        <h1>Commondities Overview</h1>  */}
+        <h1>Commondities Overview</h1> 
       </div>
     );
   }
