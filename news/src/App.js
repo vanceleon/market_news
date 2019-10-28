@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import WSJ from './Components/WSJ';
 import CNBC from './Components/CNBC';
 import TechCrunch from './Components/TechCrunch';
-import InterestRates from './Components/InterestRates';
+import Example from './Components/InterestRates';
 import NavBar from './Components/NavBar';
 import './App.css';
 
@@ -18,7 +18,7 @@ class App extends Component {
         <br></br>
         {/* <TechCrunch/> */}
         <br></br>
-        {/* <InterestRates/> */}
+        <InterestRates/>
 
         <h1>World News</h1>
         <h1>Briefing.com</h1>
