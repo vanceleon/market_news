@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import WSJ from './Components/WSJ';
 import CNBC from './Components/CNBC';
 import TechCrunch from './Components/TechCrunch';
-import Example from './Components/InterestRates';
+import InterestRates from './Components/InterestRates';
 import NavBar from './Components/NavBar';
 import './App.css';
 
@@ -12,22 +12,22 @@ class App extends Component {
       <div className="App">
         <NavBar/>
         <br></br>
-        {/* <WSJ/> */}
+        <WSJ/>
         <br></br>
-        {/* <CNBC/> */}
+        <CNBC/>
         <br></br>
-        {/* <TechCrunch/> */}
+        <TechCrunch/>
         <br></br>
         <InterestRates/>
 
-        <h1>World News</h1>
+        {/* <h1>World News</h1>
         <h1>Briefing.com</h1>
         <h1>Trading Econonics</h1>
         <h1>Currency Overview</h1>
         <h1>Major Indexes</h1>
         <h1>Municipal Bonds</h1>
         <h1>Corporate Bonds</h1>
-        <h1>Commondities Overview</h1> 
+        <h1>Commondities Overview</h1>  */}
       </div>
     );
   }
