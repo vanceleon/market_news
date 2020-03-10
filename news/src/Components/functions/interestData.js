@@ -1,25 +1,25 @@
-
 export const interestDataOrganizer = interestData => {
   console.log('testing interest Pass through', interestData);
-  const data = []; 
+  const data = [];
   interestData.column_names.map((name, i) => {
-    if (i > 0) {
-      data[i] = { name };
+    // need to loop two more times for 20 and 30 year yield
+    // need to assign date and value to each ytm date
+    // explore looping through each data point and assign the values then dataObj[date] = looped through data points.
+    for(let j = 0; j < interestData.data[j][j].length; j++){
+      let date = interestData.data[i][j]
+      console.log(date)
+      if (i > 0) {
+        data[i] = { name, [date]: interestData.data[i][j] };
+      }
+      // if(j === 0){
+        // console.log(interestData.data[j])
+        console.log('what is the data obj here',data)
+
+
+      // }
     }
   });
 
-  interestData.data.map((date, i) => {
-    // console.log('each date',date[0])
-    date = date[0];
-    data[i][date] = {test:'testing'}
-    // if (i === 0) {
-    //   data[i] = {date}
-    //   console.log(data)
-    // }else {
-
-    // }
-  })
-  
   console.log('insert dates', data);
   // // interestData.data.slice(0,10).map((daily,i) => {
   // //   // data[i] = daily
