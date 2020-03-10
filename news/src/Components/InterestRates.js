@@ -6,19 +6,19 @@ import {Header} from 'semantic-ui-react';
 import axios from 'axios';
 import LineGraph from './LineChart';
 import {interestDataOrganizer} from './functions/interestData';
-import * as data from '../_data/interestRates.json';
+import Data from '../_data/interestRates';
 
-const {interestData} = data
+// const {interestData} = data
 
 class InterestRates extends Component {
   constructor() {
     super();
     this.state = {
-      FedInt: null,
+      FedInt: Data,
       URL:
         'https://www.quandl.com/api/v3/datasets/USTREASURY/YIELD.json?api_key=',
       quandl_key: process.env.REACT_APP_QUANDL_API,
-      loaded: null
+      loaded: true
 
     };
   }
@@ -32,8 +32,10 @@ class InterestRates extends Component {
     // axios
     //   .get(URL)
     //   .then(res => {
-      console.log(data)
-        // const interestData = interestDataOrganizer(interestData);
+      // console.log(Data)
+        const preInterestRateData = Data.dataset
+        const interestData = interestDataOrganizer(preInterestRateData);
+        console.log('results from org',interestData);
         // this.setState({ FedInt: interestData, loaded: true });
       // })
       // .catch(err => console.log('Error', err));
@@ -44,7 +46,7 @@ class InterestRates extends Component {
   render() {
     if (this.state.loaded) {
       let interestRateData = this.state.FedInt.dataset;
-      console.log('interest rate dataset', interestRateData);
+      // console.log('interest rate dataset', interestRateData);
       return (
         <div className='interest-rate-table-container'>
           <Header as='h1'>{interestRateData.name}</Header>

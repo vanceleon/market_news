@@ -1,18 +1,26 @@
+
 export const interestDataOrganizer = interestData => {
   console.log('testing interest Pass through', interestData);
-  const data = [];
+  const data = []; 
   interestData.column_names.map((name, i) => {
-    // if (i > 0) {
+    if (i > 0) {
       data[i] = { name };
-    // }
+    }
   });
 
-  // for (let i = 1; i < 13; i++) {
-  //   const date = interestData.data[i][0];
-  //   data[i][interestData.data[i][0]];
-  //   console.log('date', date);
-  // }
-  // console.log('insert dates', data);
+  interestData.data.map((date, i) => {
+    // console.log('each date',date[0])
+    date = date[0];
+    data[i][date] = {test:'testing'}
+    // if (i === 0) {
+    //   data[i] = {date}
+    //   console.log(data)
+    // }else {
+
+    // }
+  })
+  
+  console.log('insert dates', data);
   // // interestData.data.slice(0,10).map((daily,i) => {
   // //   // data[i] = daily
   // //   data.daily[0]
