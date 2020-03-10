@@ -10,13 +10,13 @@ class App extends Component {
   render() {
       return (
       <div className="App">
-        <NavBar/>
+        {/* <NavBar/>
         <br></br>
         <WSJ/>
         <br></br>
         <CNBC/>
         <br></br>
-        <TechCrunch/>
+        <TechCrunch/> */}
         <br></br>
         <InterestRates/>
 
