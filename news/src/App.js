@@ -10,15 +10,15 @@ class App extends Component {
   render() {
       return (
       <div className="App">
-        {/* <NavBar/>
+        <InterestRates/>
+        {/* <br></br>
+        <NavBar/>
         <br></br>
         <WSJ/>
         <br></br>
         <CNBC/>
         <br></br>
         <TechCrunch/> */}
-        <br></br>
-        <InterestRates/>
 
         {/* <h1>World News</h1>
         <h1>Briefing.com</h1>
