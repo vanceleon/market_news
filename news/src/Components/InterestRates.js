@@ -38,6 +38,7 @@ class InterestRates extends Component {
     // console.log(Data)
     const preInterestRateData = Data.dataset;
     const interestData = interestDataOrganizer(preInterestRateData);
+    console.log('result',interestData)
     this.setState({
       FedInt: interestData,
       loaded: true,
