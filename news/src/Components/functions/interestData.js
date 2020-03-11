@@ -7,23 +7,29 @@ export const interestDataOrganizer = interestData => {
     if (i !== 0) {
       // console.log(interestData.column_names[i]);
       let j = 1;
-      console.log((data[i - j] = 0));
       data[i - j] = {};
       data[i - j].name = interestData.column_names[i];
-      // interestData.data.map((interestRates, i) => {
-      //   // console.log('array of ', interestRates);
-      //   for (let j = 0; j < interestRates.length; j++) {
-      //     let date = interestRates[0];
-      //     if (j > 0) {
-      //       data[date] = interestRates[i];
-      //     }
-      //   }
-      // });
+
+      console.log('insertion to data', data);
+      let date = interestData.data[0][0];
+      for (let x = 1; x < interestData.data.length; x++) {
+        data[i - j][date] = interestData.data[x][x];
+      }
+      console.log('after date insert', data);
     }
     i++;
   }
   console.log('result', data);
 
+  // interestData.data.map((interestRates, i) => {
+  //   console.log('array of ', interestRates);
+  //   for (let x = 0; x < interestRates.length; x++) {
+  //     // console.log("date", date)
+  //     if (x > 0) {
+  //       // data[i - j][date] = interestRates[x];
+  //     }
+  //   }
+  // });
   // interestData.column_names.map((name, i) => {
   // need to loop two more times for 20 and 30 year yield
   // need to assign date and value to each ytm date
