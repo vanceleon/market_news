@@ -38,7 +38,11 @@ class InterestRates extends Component {
     // console.log(Data)
     const preInterestRateData = Data.dataset;
     const interestData = interestDataOrganizer(preInterestRateData);
-    this.setState({ FedInt: interestData, loaded: true, fedData: preInterestRateData });
+    this.setState({
+      FedInt: interestData,
+      loaded: true,
+      fedData: preInterestRateData
+    });
     // })
     // .catch(err => console.log('Error', err));
   };
@@ -77,16 +81,16 @@ class InterestRates extends Component {
             {/* <Legend /> */}
             <Line type='monotone' dataKey={dates[1]} stroke='#82ca9d' />
             <Line type='monotone' dataKey={dates[2]} stroke='#B32C2C' />
-            <Line type='monotone' dataKey={dates[3]} stroke='#B32C2C' />
-            <Line type='monotone' dataKey={dates[4]} stroke='#B32C2C' />
-            <Line type='monotone' dataKey={dates[5]} stroke='#B32C2C' />
-            <Line type='monotone' dataKey={dates[6]} stroke='#B32C2C' />
-            <Line type='monotone' dataKey={dates[7]} stroke='#B32C2C' />
-            <Line type='monotone' dataKey={dates[8]} stroke='#B32C2C' />
-            <Line type='monotone' dataKey={dates[9]} stroke='#B32C2C' />
-            <Line type='monotone' dataKey={dates[10]} stroke='#B32C2C' />
-            <Line type='monotone' dataKey={dates[11]} stroke='#B32C2C' />
-            <Line type='monotone' dataKey={dates[12]} stroke='#B32C2C' />
+            <Line type='monotone' dataKey={dates[3]} stroke='#003f5c' />
+            <Line type='monotone' dataKey={dates[4]} stroke='#58508d' />
+            <Line type='monotone' dataKey={dates[5]} stroke='#bc5090' />
+            <Line type='monotone' dataKey={dates[6]} stroke='#ff6361' />
+            <Line type='monotone' dataKey={dates[7]} stroke='#ffa600' />
+            {/* <Line type='monotone' dataKey={dates[8]} stroke='#d45087' />
+            <Line type='monotone' dataKey={dates[9]} stroke='#f95d6a' />
+            <Line type='monotone' dataKey={dates[10]} stroke='#ff7c43' />
+            <Line type='monotone' dataKey={dates[11]} stroke='#9dc6e0' />
+            <Line type='monotone' dataKey={dates[12]} stroke='#c1e7ff' /> */}
           </LineChart>
         </div>
       );
