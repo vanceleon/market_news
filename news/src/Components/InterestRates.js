@@ -1,25 +1,28 @@
-import React, { Component, PureComponent } from 'react';
+import React, { Component } from 'react';
 import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
 } from 'recharts';
-import {Header} from 'semantic-ui-react';
+import { Header } from 'semantic-ui-react';
 import axios from 'axios';
-import LineGraph from './LineChart';
-import {interestDataOrganizer} from './functions/interestData';
+import { interestDataOrganizer } from './functions/interestData';
 import Data from '../_data/interestRates';
-
-// const {interestData} = data
 
 class InterestRates extends Component {
   constructor() {
     super();
     this.state = {
       FedInt: Data,
+      fedData: {},
       URL:
         'https://www.quandl.com/api/v3/datasets/USTREASURY/YIELD.json?api_key=',
       quandl_key: process.env.REACT_APP_QUANDL_API,
       loaded: true
-
     };
   }
 
@@ -32,29 +35,59 @@ class InterestRates extends Component {
     // axios
     //   .get(URL)
     //   .then(res => {
-      // console.log(Data)
-        const preInterestRateData = Data.dataset
-        const interestData = interestDataOrganizer(preInterestRateData);
-        console.log('results from org',interestData);
-        // this.setState({ FedInt: interestData, loaded: true });
-      // })
-      // .catch(err => console.log('Error', err));
+    // console.log(Data)
+    const preInterestRateData = Data.dataset;
+    const interestData = interestDataOrganizer(preInterestRateData);
+    this.setState({ FedInt: interestData, loaded: true, fedData: preInterestRateData });
+    // })
+    // .catch(err => console.log('Error', err));
   };
-
-
 
   render() {
     if (this.state.loaded) {
-      let interestRateData = this.state.FedInt.dataset;
-      // console.log('interest rate dataset', interestRateData);
+      let interestRateData = this.state.FedInt;
+      console.log('interest rate dataset', interestRateData);
+      const dates = [];
+      let i = 0;
+      while (i < 1) {
+        for (const date in interestRateData[i]) {
+          dates.push(date);
+        }
+        i++;
+      }
+      console.log(dates);
       return (
         <div className='interest-rate-table-container'>
-          <Header as='h1'>{interestRateData.name}</Header>
-
-
-        
-     
-              
+          <Header as='h1'>{this.state.fedData.name}</Header>
+          <LineChart
+            width={500}
+            height={300}
+            data={interestRateData}
+            margin={{
+              top: 7,
+              right: 30,
+              left: 20,
+              bottom: 5
+            }}
+          >
+            <CartesianGrid strokeDasharray=' 3' />
+            <XAxis dataKey='name' />
+            <YAxis />
+            <Tooltip />
+            {/* <Legend /> */}
+            <Line type='monotone' dataKey={dates[1]} stroke='#82ca9d' />
+            <Line type='monotone' dataKey={dates[2]} stroke='#B32C2C' />
+            <Line type='monotone' dataKey={dates[3]} stroke='#B32C2C' />
+            <Line type='monotone' dataKey={dates[4]} stroke='#B32C2C' />
+            <Line type='monotone' dataKey={dates[5]} stroke='#B32C2C' />
+            <Line type='monotone' dataKey={dates[6]} stroke='#B32C2C' />
+            <Line type='monotone' dataKey={dates[7]} stroke='#B32C2C' />
+            <Line type='monotone' dataKey={dates[8]} stroke='#B32C2C' />
+            <Line type='monotone' dataKey={dates[9]} stroke='#B32C2C' />
+            <Line type='monotone' dataKey={dates[10]} stroke='#B32C2C' />
+            <Line type='monotone' dataKey={dates[11]} stroke='#B32C2C' />
+            <Line type='monotone' dataKey={dates[12]} stroke='#B32C2C' />
+          </LineChart>
         </div>
       );
     } else {
