@@ -59,6 +59,7 @@ class InterestRates extends Component {
         }
         i++;
       }
+      // next step just manually create data struture and pass that through to see if it works
       return (
         <div className='interest-rate-table-container'>
           <Header as='h1'>{this.state.fedData.name}</Header>
