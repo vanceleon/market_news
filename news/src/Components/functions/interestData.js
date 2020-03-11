@@ -6,20 +6,23 @@ export const interestDataOrganizer = interestData => {
   while (i < interestData.column_names.length) {
     if (i !== 0) {
       // console.log(interestData.column_names[i]);
-      data.name = interestData.column_names[i];
-      interestData.data.map((interestRates, i) => {
-        // console.log('array of ', interestRates);
-        for (let j = 0; j < interestRates.length; j++) {
-          let date = interestRates[0];
-          if (j > 0) {
-            data[date] = interestRates[i];
-          }
-        }
-      });
+      let j = 1;
+      console.log((data[i - j] = 0));
+      data[i - j] = {};
+      data[i - j].name = interestData.column_names[i];
+      // interestData.data.map((interestRates, i) => {
+      //   // console.log('array of ', interestRates);
+      //   for (let j = 0; j < interestRates.length; j++) {
+      //     let date = interestRates[0];
+      //     if (j > 0) {
+      //       data[date] = interestRates[i];
+      //     }
+      //   }
+      // });
     }
     i++;
   }
-  console.log("result", data)
+  console.log('result', data);
 
   // interestData.column_names.map((name, i) => {
   // need to loop two more times for 20 and 30 year yield
