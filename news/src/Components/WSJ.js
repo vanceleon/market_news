@@ -61,7 +61,7 @@ class WSJ extends Component {
 }
 
 export default WSJ;
-{/* seeFewerClick={this.seeFewerClick} */}
+
 
 
 

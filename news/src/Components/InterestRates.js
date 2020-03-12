@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-import {Container, Header} from 'semantic-ui-react';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from 'recharts';
+import { Header } from 'semantic-ui-react';
 import axios from 'axios';
-// import { curveCatmullRom } from 'd3-shape';
-// import {
-//   XYPlot,
-//   XAxis,
-//   YAxis,
-//   HorizontalGridLines,
-//   VerticalGridLines,
-//   LineSeries
-// } from 'index';
+import { interestDataOrganizer } from './functions/interestData';
 
 class InterestRates extends Component {
   constructor() {
     super();
     this.state = {
-      FedInt: null,
+      fedInt: [],
+      fedData: {},
       URL:
         'https://www.quandl.com/api/v3/datasets/USTREASURY/YIELD.json?api_key=',
       quandl_key: process.env.REACT_APP_QUANDL_API,
-      loaded: null
+      loaded: true
     };
   }
 
@@ -32,49 +34,66 @@ class InterestRates extends Component {
     axios
       .get(URL)
       .then(res => {
-        const fedYield = res.data;
-        // console.log("interest rates info ", fedYield);
-        this.setState({ FedInt: fedYield, loaded: true });
-      })
-      .catch(err => console.log('Error', err));
+        console.log('data from api',res.data)
+    const preInterestRateData = res.data.dataset;
+    const interestData = interestDataOrganizer(preInterestRateData);
+    this.setState({
+      fedInt: interestData,
+      loaded: true,
+      fedData: preInterestRateData
+    });
+    })
+    .catch(err => console.log('Error', err));
   };
 
   render() {
     if (this.state.loaded) {
-      let interestRateData = this.state.FedInt.dataset;
-      console.log("interest rate dataset", interestRateData);
+      let data = [0, 4,4,6,5]
+      console.log('before assign',data)
+      data = this.state.fedInt;
+      const dates = [];
+      let i = 0;
+      while (i < 1) {
+        for (const date in data[i]) {
+          dates.push(date);
+        }
+        i++;
+      }
+      console.log('interest rate dataset', data);
+
       return (
-<div className="interest-rate-table-container">
-        
-
-        <Container text>
-        <div style={{width:'75%'}}>
-          <Header as='h1'>{interestRateData.name}</Header>
-
-          <table id='interestRates' className='ui single line table'>
-            <thead>
-              <tr>
-                {interestRateData.column_names.map((header, i) => {
-                  return <th key={i}>{header}</th>;
-                })}
-              </tr>
-            </thead>
-            <tbody>
-              {interestRateData.data.slice(0, 10).map(daily => {
-                return (
-                  <tr>
-                    {daily.map(rate => {
-                      return <td>{rate}</td>;
-                    })}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+        <div className='interest-rate-table-container'>
+          <Header as='h1'>{this.state.fedData.name}</Header>        
+          <LineChart
+            width={600}
+            height={300}
+            data={data}
+            margin={{
+              top: 7,
+              right: 30,
+              left: 20,
+              bottom: 5
+            }}
+          >
+            <CartesianGrid strokeDasharray='3 3' />
+            <Legend />
+            <XAxis dataKey='name' />
+            <YAxis />
+            <Tooltip />
+             <Line type='monotone' dataKey={dates[1]} stroke='#B32C2C' strokeWidth={4} />
+            <Line type='monotone' dataKey={dates[2]} stroke='#82ca9d' />
+            <Line type='monotone' dataKey={dates[3]} stroke='#003f5c' />
+            <Line type='monotone' dataKey={dates[7]} stroke='#ffa600' />
+            <Line type='monotone' dataKey={dates[10]} stroke='#ff7c43' />
+            <Line type='monotone' dataKey={dates[15]} stroke='#c1e7ff' /> 
+            <Line type='monotone' dataKey={dates[20]} stroke='#95A5A5' /> 
+            <Line type='monotone' dataKey={dates[30]} stroke='#8F43AD' /> 
+            <Line type='monotone' dataKey={dates[45]} stroke='#D25400' /> 
+            <Line type='monotone' dataKey={dates[60]} stroke='#F39B11' /> 
+            <Line type='monotone' dataKey={dates[90]} stroke='#2D3E50' strokeWidth={4}/> 
+          </LineChart> 
+           
         </div>
-
-        </Container>
-</div>
       );
     } else {
       return (
@@ -90,54 +109,3 @@ class InterestRates extends Component {
 }
 
 export default InterestRates;
-
-
-// import React from 'react';
-// import {curveCatmullRom} from 'd3-shape';
-
-// import {
-//   XYPlot,
-//   XAxis,
-//   YAxis,
-//   HorizontalGridLines,
-//   VerticalGridLines,
-//   LineSeries
-// } from 'index';
-
-// export default function Example(props) {
-//   return (
-//     <XYPlot width={300} height={300}>
-//       <HorizontalGridLines style={{stroke: '#B7E9ED'}} />
-//       <VerticalGridLines style={{stroke: '#B7E9ED'}} />
-//       <XAxis
-//         title="X Axis"
-//         style={{
-//           line: {stroke: '#ADDDE1'},
-//           ticks: {stroke: '#ADDDE1'},
-//           text: {stroke: 'none', fill: '#6b6b76', fontWeight: 600}
-//         }}
-//       />
-//       <YAxis title="Y Axis" />
-//       <LineSeries
-//         className="first-series"
-//         data={[{x: 1, y: 3}, {x: 2, y: 5}, {x: 3, y: 15}, {x: 4, y: 12}]}
-//         style={{
-//           strokeLinejoin: 'round',
-//           strokeWidth: 4
-//         }}
-//       />
-//       <LineSeries className="second-series" data={null} />
-//       <LineSeries
-//         className="third-series"
-//         curve={'curveMonotoneX'}
-//         data={[{x: 1, y: 10}, {x: 2, y: 4}, {x: 3, y: 2}, {x: 4, y: 15}]}
-//         strokeDasharray="7, 3"
-//       />
-//       <LineSeries
-//         className="fourth-series"
-//         curve={curveCatmullRom.alpha(0.5)}
-//         data={[{x: 1, y: 7}, {x: 2, y: 11}, {x: 3, y: 9}, {x: 4, y: 2}]}
-//       />
-//     </XYPlot>
-//   );
-// }
