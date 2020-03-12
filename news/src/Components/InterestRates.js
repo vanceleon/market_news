@@ -11,7 +11,6 @@ import {
 import { Header } from 'semantic-ui-react';
 import axios from 'axios';
 import { interestDataOrganizer } from './functions/interestData';
-import Data from '../_data/interestRates';
 
 class InterestRates extends Component {
   constructor() {
@@ -60,28 +59,11 @@ class InterestRates extends Component {
         }
         i++;
       }
-      // const dateRef = dates[1]
       console.log('interest rate dataset', data);
-      // const testData = [
-      //  {name: "1 MO", date: 1.59},
-      // {name: "2 MO", date: 1.56},
-      //  {name: "3 MO", date: 1.53},
-      //  {name: "6 MO", date: 1.42},
-      //  {name: "1 YR", date: 1.26},
-      //  {name: "2 YR", date: 1.16},
-      //  {name: "3 YR", date: 1.14},
-      //  {name: "5 YR", date: 1.14},
-      //  {name: "7 YR", date: 1.25},
-      //  {name: "10 YR", date: 1.33},
-      //  {name: "20 YR", date: 1.64},
-      // {name: "30 YR", date: 1.81}]
-      // next step just manually create data struture and pass that through to see if it works
+
       return (
         <div className='interest-rate-table-container'>
-          <Header as='h1'>{this.state.fedData.name}</Header>
-          {/* <div>{dates[1]}</div>
-          <div>{data[4].name}</div> */}
-          
+          <Header as='h1'>{this.state.fedData.name}</Header>        
           <LineChart
             width={600}
             height={300}
