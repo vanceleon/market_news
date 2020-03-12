@@ -4,15 +4,22 @@ export const interestDataOrganizer = interestData => {
   while (i < interestData.column_names.length) {
     data[i] = {};
     data[i].name = interestData.column_names[i];
-    for (let j = 0; j < interestData.data.length; j++) {
+    for (let j = 0; j < interestData.data.length && j < 90; j++) {
       let date = interestData.data[j][0];
       //y <= i stops the iteration and prevents overwriting
       for (let y = 0; y <= i; y++) {
         //creating a unquie date at that location of the array
         data[i][date] = interestData.data[j][y];
+        // data[i].date = interestData.data[j][y];
       }
     }
     i++;
   }
-  return data;
+  let filteredData = []
+  for(let i = 1;i < data.length; i++){
+    filteredData.push(data[i]);
+  }
+
+  console.log('checking data',filteredData)
+  return filteredData;
 };

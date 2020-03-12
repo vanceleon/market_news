@@ -13,30 +13,6 @@ import axios from 'axios';
 import { interestDataOrganizer } from './functions/interestData';
 import Data from '../_data/interestRates';
 
-// const data = [
-//   {
-//     name: 'Page A', uv: 41000, pv: 1.23, amt: 300,
-//   },
-//   {
-//     name: 'Page B', uv: 3000, pv: .05, amt: 2210,
-//   },
-//   {
-//     name: 'Page C', uv: 2000, pv: .40, amt: 2290,
-//   },
-//   {
-//     name: 'Page D', uv: 2780, pv: .70, amt: 2000,
-//   },
-//   {
-//     name: 'Page E', uv: 1890, pv: .90, amt: 2181,
-//   },
-//   {
-//     name: 'Page F', uv: 2390, pv: 1.2, amt: 2500,
-//   },
-//   {
-//     name: 'Page G', uv: 3490, pv: 1.90, amt: 2100, test: 30002
-//   },
-// ];
-
 class InterestRates extends Component {
   constructor() {
     super();
@@ -56,19 +32,19 @@ class InterestRates extends Component {
 
   getNews = () => {
     const URL = `${this.state.URL}${this.state.quandl_key}`;
-    // axios
-    //   .get(URL)
-    //   .then(res => {
-    //     console.log('data from api',res.data)
-    const preInterestRateData = Data.dataset;
+    axios
+      .get(URL)
+      .then(res => {
+        console.log('data from api',res.data)
+    const preInterestRateData = res.data.dataset;
     const interestData = interestDataOrganizer(preInterestRateData);
     this.setState({
       fedInt: interestData,
       loaded: true,
       fedData: preInterestRateData
     });
-    // })
-    // .catch(err => console.log('Error', err));
+    })
+    .catch(err => console.log('Error', err));
   };
 
   render() {
@@ -84,9 +60,21 @@ class InterestRates extends Component {
         }
         i++;
       }
-      const dateRef = dates[1]
-      console.log('interest rate dataset', data[1]);
-      
+      // const dateRef = dates[1]
+      console.log('interest rate dataset', data);
+      // const testData = [
+      //  {name: "1 MO", date: 1.59},
+      // {name: "2 MO", date: 1.56},
+      //  {name: "3 MO", date: 1.53},
+      //  {name: "6 MO", date: 1.42},
+      //  {name: "1 YR", date: 1.26},
+      //  {name: "2 YR", date: 1.16},
+      //  {name: "3 YR", date: 1.14},
+      //  {name: "5 YR", date: 1.14},
+      //  {name: "7 YR", date: 1.25},
+      //  {name: "10 YR", date: 1.33},
+      //  {name: "20 YR", date: 1.64},
+      // {name: "30 YR", date: 1.81}]
       // next step just manually create data struture and pass that through to see if it works
       return (
         <div className='interest-rate-table-container'>
@@ -106,22 +94,21 @@ class InterestRates extends Component {
             }}
           >
             <CartesianGrid strokeDasharray='3 3' />
+            <Legend />
             <XAxis dataKey='name' />
             <YAxis />
             <Tooltip />
-            <Legend />
-             <Line type='monotone' dataKey={dates[1]} stroke='#82ca9d' />
-            {/* <Line type='monotone' dataKey={dates[2]} stroke='#B32C2C' />
+             <Line type='monotone' dataKey={dates[1]} stroke='#B32C2C' strokeWidth={4} />
+            <Line type='monotone' dataKey={dates[2]} stroke='#82ca9d' />
             <Line type='monotone' dataKey={dates[3]} stroke='#003f5c' />
-            <Line type='monotone' dataKey={dates[4]} stroke='#58508d' />
-            <Line type='monotone' dataKey={dates[5]} stroke='#bc5090' />
-            <Line type='monotone' dataKey={dates[6]} stroke='#ff6361' />
             <Line type='monotone' dataKey={dates[7]} stroke='#ffa600' />
-            <Line type='monotone' dataKey={dates[8]} stroke='#d45087' />
-            <Line type='monotone' dataKey={dates[9]} stroke='#f95d6a' />
             <Line type='monotone' dataKey={dates[10]} stroke='#ff7c43' />
-            <Line type='monotone' dataKey={dates[11]} stroke='#9dc6e0' />
-            <Line type='monotone' dataKey={dates[12]} stroke='#c1e7ff' />  */}
+            <Line type='monotone' dataKey={dates[15]} stroke='#c1e7ff' /> 
+            <Line type='monotone' dataKey={dates[20]} stroke='#c1e7ff' /> 
+            <Line type='monotone' dataKey={dates[30]} stroke='#c1e7ff' /> 
+            <Line type='monotone' dataKey={dates[45]} stroke='#c1e7ff' /> 
+            <Line type='monotone' dataKey={dates[60]} stroke='#c1e7ff' /> 
+            <Line type='monotone' dataKey={dates[90]} stroke='#c1e7ff' /> 
           </LineChart> 
            
         </div>
