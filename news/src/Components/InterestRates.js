@@ -104,11 +104,11 @@ class InterestRates extends Component {
             <Line type='monotone' dataKey={dates[7]} stroke='#ffa600' />
             <Line type='monotone' dataKey={dates[10]} stroke='#ff7c43' />
             <Line type='monotone' dataKey={dates[15]} stroke='#c1e7ff' /> 
-            <Line type='monotone' dataKey={dates[20]} stroke='#c1e7ff' /> 
-            <Line type='monotone' dataKey={dates[30]} stroke='#c1e7ff' /> 
-            <Line type='monotone' dataKey={dates[45]} stroke='#c1e7ff' /> 
-            <Line type='monotone' dataKey={dates[60]} stroke='#c1e7ff' /> 
-            <Line type='monotone' dataKey={dates[90]} stroke='#c1e7ff' /> 
+            <Line type='monotone' dataKey={dates[20]} stroke='#95A5A5' /> 
+            <Line type='monotone' dataKey={dates[30]} stroke='#8F43AD' /> 
+            <Line type='monotone' dataKey={dates[45]} stroke='#D25400' /> 
+            <Line type='monotone' dataKey={dates[60]} stroke='#F39B11' /> 
+            <Line type='monotone' dataKey={dates[90]} stroke='#2D3E50' strokeWidth={4}/> 
           </LineChart> 
            
         </div>
