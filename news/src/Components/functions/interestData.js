@@ -19,7 +19,5 @@ export const interestDataOrganizer = interestData => {
   for(let i = 1;i < data.length; i++){
     filteredData.push(data[i]);
   }
-
-  console.log('checking data',filteredData)
   return filteredData;
 };

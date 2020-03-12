@@ -34,7 +34,6 @@ class InterestRates extends Component {
     axios
       .get(URL)
       .then(res => {
-        console.log('data from api',res.data)
     const preInterestRateData = res.data.dataset;
     const interestData = interestDataOrganizer(preInterestRateData);
     this.setState({
@@ -49,7 +48,6 @@ class InterestRates extends Component {
   render() {
     if (this.state.loaded) {
       let data = [0, 4,4,6,5]
-      console.log('before assign',data)
       data = this.state.fedInt;
       const dates = [];
       let i = 0;
@@ -59,7 +57,6 @@ class InterestRates extends Component {
         }
         i++;
       }
-      console.log('interest rate dataset', data);
 
       return (
         <div className='interest-rate-table-container'>
