@@ -63,7 +63,7 @@ class InterestRates extends Component {
 
       return (
         <div className='interest-rate-table-container'>
-          <Header as='h1'>{this.state.fedData.name}</Header>        
+          <Header as='h1'>Treasury Yield Rates</Header>        
           <LineChart
             width={600}
             height={300}
