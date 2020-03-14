@@ -55,6 +55,10 @@
   width: 50%;
 } */
 
+interest-chart {
+  margin: 0 auto;
+}
+
 .firstContainerCard {
   padding: 10px;
 }
