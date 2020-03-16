@@ -55,7 +55,11 @@
   width: 50%;
 } */
 
-interest-chart {
+.recharts-wrapper {
+  position: relative;
+  cursor: default;
+  width: 600px;
+  height: 300px;
   margin: 0 auto;
 }
 
