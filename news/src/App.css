@@ -58,6 +58,8 @@
 .interest-rate-table-container{
   width: 600px;
   height: 300px;
+  margin: 0px auto 60px;
+  font-size: .95em;
 }
 
 .recharts-wrapper {
@@ -119,7 +121,7 @@ recharts-legend-wrapper{
 }
 
 
-@media (max-width: 400px) {
+@media (max-width: 650px) {
   .interest-rate-table-container{
     width: 100%;
     padding: 0 40px 0 0px;
