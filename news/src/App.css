@@ -55,12 +55,25 @@
   width: 50%;
 } */
 
+.interest-rate-table-container{
+  width: 600px;
+  height: 300px;
+}
+
 .recharts-wrapper {
   position: relative;
   cursor: default;
-  width: 600px;
+  width: 100%;
   height: 300px;
   margin: 0 auto;
+}
+
+.recharts-surface {
+  width: 100%;
+}
+
+recharts-legend-wrapper{
+  width: 100%;
 }
 
 .firstContainerCard {
@@ -103,4 +116,17 @@
 .newsImage {
   width: 100%;
   border-radius: 15px !important;
+}
+
+
+@media (max-width: 400px) {
+  .interest-rate-table-container{
+    width: 100%;
+    padding: 0 40px 0 0px;
+    margin: 0 0 60px 0;
+    height: 390px;
+  }
+  .recharts-legend-wrapper{
+    display: none;
+  }
 }

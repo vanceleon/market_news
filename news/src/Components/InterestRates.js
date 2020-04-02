@@ -6,11 +6,12 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  ResponsiveContainer
 } from 'recharts';
 import { Header } from 'semantic-ui-react';
 import axios from 'axios';
-import { interestDataOrganizer } from './functions/interestData';
+import { interestDataOrganizer } from './util/interestData';
 
 class InterestRates extends Component {
   constructor() {
@@ -47,7 +48,7 @@ class InterestRates extends Component {
 
   render() {
     if (this.state.loaded) {
-      let data = [0, 4, 4, 6, 5];
+      let data = [];
       data = this.state.fedInt;
       const dates = [];
       let i = 0;
@@ -61,8 +62,8 @@ class InterestRates extends Component {
       return (
         <div className='interest-rate-table-container'>
           <Header as='h1'>Treasury Yield Rates</Header>
-          <div className='chart-container'>
-            <LineChart height={300} width={600} data={data}>
+          <ResponsiveContainer heigh={`100%`} width={`100%`}>
+            <LineChart data={data}>
               <CartesianGrid strokeDasharray='3 3' />
               <Legend />
               <XAxis dataKey='name' />
@@ -90,7 +91,7 @@ class InterestRates extends Component {
                 strokeWidth={4}
               />
             </LineChart>
-          </div>
+          </ResponsiveContainer>
         </div>
       );
     } else {
