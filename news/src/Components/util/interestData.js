@@ -16,6 +16,7 @@ export const interestDataOrganizer = interestData => {
     i++;
   }
   let filteredData = []
+  //this is to prevent string data from prohibiting the graph to render
   for(let i = 1;i < data.length; i++){
     filteredData.push(data[i]);
   }
