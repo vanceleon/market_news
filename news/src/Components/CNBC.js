@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import CentralNewsFuncComponent from './NewsFunc';
 
+const urlNews = 'cnbc&';
+const newsKey = `apiKey=${process.env.REACT_APP_NEWS_API}`;
+
 class CNBC extends Component {
   constructor() {
     super();
@@ -9,8 +12,8 @@ class CNBC extends Component {
       newsHeader: 'CNBC',
       newsInfo: [],
       firstCard: [],
-      URL: 'http://newsapi.org/v2/everything?domains=https://www.cnbc.com/&apiKey=',
-      news_key: process.env.REACT_APP_NEWS_API,
+      URL: `https://newsapi.org/v2/top-headlines?sources=cnbc&apiKey=`,//url is broken for this component due to API changes
+      newsKey:process.env.REACT_APP_NEWS_API,
       isToggleOn: false,
       navLinkId: 'CNBC',
       cardClass: 'cnbc',
@@ -21,13 +24,14 @@ class CNBC extends Component {
     this.getNews();
   }
 
+  // 
   getNews = () => {
-    const URL = `${this.state.URL}${this.state.news_key}`;
+    const URL = `${this.state.URL}${this.state.newsKey}`;
     axios
       .get(URL)
       .then(res => {
         const newsDataRetrieve = res.data;
-        console.log(newsDataRetrieve);
+        console.log('getting news data',newsDataRetrieve);
         this.setState({
           newsInfo: newsDataRetrieve,
           firstCard: newsDataRetrieve.articles[0],

@@ -10,7 +10,7 @@ class TechCrunch extends Component {
       newsInfo: [],
       firstCard: [],
       URL:
-        'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=',
+        'https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=',
       news_key: process.env.REACT_APP_NEWS_API,
       isToggleOn: false,
       navLinkId: 'TechCrunch',

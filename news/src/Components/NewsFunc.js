@@ -4,9 +4,9 @@ import { Container, Header } from 'semantic-ui-react';
 const CentralNewsFuncComponent = props => {
   let classUnique = 'collapsibleCards';
   if (props.newsInfo.articles) {
-    // console.log("props cardClass", props.cardClass)
     if(props.isToggleOn) {
       classUnique += `-${props.cardClass}`;
+
       // console.log("props CardClass 2", className);
     }
     return (
