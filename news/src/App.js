@@ -13,10 +13,10 @@ class App extends Component {
         <NavBar/>
         <br></br>
         <InterestRates/>
+        <CNBC/>
         {/* <br></br>
         <WSJ/>
         <br></br>
-        {/* <CNBC/> */}
         {/* <br></br> */}
         {/* <TechCrunch/> */}
         {/* <h1>World News</h1>

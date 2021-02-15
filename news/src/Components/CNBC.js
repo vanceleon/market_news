@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import CentralNewsFuncComponent from './NewsFunc'; 
+import CentralNewsFuncComponent from './NewsFunc';
 
 class CNBC extends Component {
   constructor() {
@@ -9,8 +9,7 @@ class CNBC extends Component {
       newsHeader: 'CNBC',
       newsInfo: [],
       firstCard: [],
-      URL:
-        'https://newsapi.org/v2/top-headlines?sources=cnbc&apiKey=',
+      URL: 'http://newsapi.org/v2/everything?domains=https://www.cnbc.com/&apiKey=',
       news_key: process.env.REACT_APP_NEWS_API,
       isToggleOn: false,
       navLinkId: 'CNBC',
@@ -28,9 +27,10 @@ class CNBC extends Component {
       .get(URL)
       .then(res => {
         const newsDataRetrieve = res.data;
+        console.log(newsDataRetrieve);
         this.setState({
           newsInfo: newsDataRetrieve,
-          firstCard: newsDataRetrieve.articles[0]
+          firstCard: newsDataRetrieve.articles[0],
         });
       })
       .catch(err => console.log('Error', err));
