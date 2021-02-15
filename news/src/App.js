@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import WSJ from './Components/WSJ';
-import CNBC from './Components/CNBC';
+// import CNBC from './Components/CNBC';
 import TechCrunch from './Components/TechCrunch';
 import InterestRates from './Components/InterestRates';
 import NavBar from './Components/NavBar';

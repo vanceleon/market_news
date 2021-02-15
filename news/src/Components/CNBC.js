@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import CentralNewsFuncComponent from './NewsFunc';
 
-const urlNews = 'cnbc&';
-const newsKey = `apiKey=${process.env.REACT_APP_NEWS_API}`;
-
 class CNBC extends Component {
   constructor() {
     super();
