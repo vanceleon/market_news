@@ -10,7 +10,7 @@ const CentralNewsFuncComponent = props => {
       // console.log("props CardClass 2", className);
     }
     return (
-      <Container text>
+      <Container text id='news-container'>
         <Header as='h1' id={props.navLinkId}>
           {props.newsHeader}
         </Header>

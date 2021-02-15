@@ -55,6 +55,10 @@
   width: 50%;
 } */
 
+#news-container{
+  margin: 30px;
+}
+
 .interest-rate-table-container{
   width: 600px;
   height: 300px;
